@@ -42,7 +42,7 @@ export default function MemoryGame({
     if (gameState === 'showing-answer') {
       setGameState('showing-item');
 
-      if (wasCorrect) {
+      if (wasCorrect && !hits.includes(currentItem)) {
         setHits(prev => [...prev, currentItem]);
       }
       
