@@ -193,8 +193,8 @@ export const regionsGame: GameData = {
       component: <CountryZoom countryName="Comores" />,
     },
     {
-      answer: "Congo",
-      component: <CountryZoom countryName="Congo" />,
+      answer: "República Democrática do Congo",
+      component: <CountryZoom countryName="República Democrática do Congo" />,
     },
     {
       answer: "Coreia do Norte",
