@@ -7,13 +7,9 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { GameProgress } from "@/components/game-progress";
 import { GameImage } from "@/components/game-image";
 import { getRandomAbleItem } from '@/utils/getRandomAbleItem';
+import { GameItem } from '@/types/game';
 
 type GameState = 'showing-item' | 'showing-answer';
-
-interface GameItem {
-  answer: string;
-  imageUrl: string;
-}
 
 interface MemoryGameProps {
   items: GameItem[];
@@ -94,16 +90,23 @@ export default function MemoryGame({
       <CardContent className="flex flex-col items-center gap-6">
         <motion.div 
           className="w-full aspect-video relative border border-border rounded-lg overflow-hidden"
-          key={currentItem.imageUrl}
+          key={currentItem.answer}
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.3 }}
         >
-          <GameImage
-            src={currentItem.imageUrl}
-            alt="Item to guess"
-            useOptimization={useOptimizedImages}
-          />
+					{'imageUrl' in currentItem && (
+						<GameImage
+							src={currentItem.imageUrl}
+							alt="Item to guess"
+							useOptimization={useOptimizedImages}
+						/>
+					)}
+					{"text" in currentItem && (
+						<div className="w-full h-full flex items-center justify-center">
+							<span className="text-3xl font-bold text-center">{currentItem.text}</span>
+						</div>
+					)}
         </motion.div>
 
         <div className="h-[100px] flex items-center">
