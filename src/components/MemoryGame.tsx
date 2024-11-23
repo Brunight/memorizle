@@ -134,7 +134,7 @@ export default function MemoryGame({
                 transition={{ duration: 0.2 }}
               >
                 <motion.div 
-                  className="text-xl font-bold"
+                  className="text-xl font-bold text-center"
                   initial={{ scale: 0.9 }}
                   animate={{ scale: 1 }}
                   transition={{ type: "spring", stiffness: 200 }}
