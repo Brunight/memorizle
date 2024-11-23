@@ -100,7 +100,7 @@ export default function MemoryGame({
   }, []);
 
   return (
-    <Card className="w-2/4">
+    <Card className="w-full lg:w-2/4">
       <CardHeader>
         <CardTitle className="text-center">{title}</CardTitle>
         <GameProgress current={hits.length} total={items.length} />
