@@ -2,6 +2,7 @@ import { flagsGame } from "./flags"
 import { paintingsGame } from "./paintings"
 import { capitalsGame } from "./capitals"
 import { GameData } from "@/types/game"
+import { periodicTableGame } from "./periodicTable"
 
 interface GameRegistry {
   [key: string]: {
@@ -26,5 +27,10 @@ export const gamesRegistry: GameRegistry = {
     title: "Capitals",
     description: "Learn capital cities from around the world",
     data: capitalsGame
+  },
+  "periodic-table": {
+    title: "Periodic Table",
+    description: "Learn the periodic table of elements",
+    data: periodicTableGame
   }
 } 
