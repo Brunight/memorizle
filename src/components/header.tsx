@@ -1,12 +1,6 @@
 import Link from "next/link"
 import { ThemeToggle } from "./theme-toggle"
-
-const navigation = [
-  { name: 'Flags', href: '/flags' },
-  // Add more games here as they're created
-  
-  { name: 'Paintings', href: '/paintings' },
-]
+import { gamesRegistry } from "@/data/games"
 
 export function Header() {
   return (
@@ -18,13 +12,13 @@ export function Header() {
               <span className="font-bold">Memorizle</span>
             </Link>
             <nav className="flex items-center space-x-6 text-sm font-medium">
-              {navigation.map((item) => (
+              {Object.entries(gamesRegistry).map(([key, game]) => (
                 <Link
-                  key={item.name}
-                  href={item.href}
+                  key={key}
+                  href={`/${key}`}
                   className="transition-colors hover:text-foreground/80 text-foreground/60"
                 >
-                  {item.name}
+                  {game.title}
                 </Link>
               ))}
             </nav>

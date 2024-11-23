@@ -1,15 +1,7 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-
-const games = [
-  {
-    title: "Flags",
-    description: "Learn country flags through a simple memory game",
-    href: "/flags"
-  },
-  // Add more games here as they're created
-]
+import { gamesRegistry } from "@/data/games"
 
 export default function HomePage() {
   return (
@@ -22,14 +14,14 @@ export default function HomePage() {
       </div>
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {games.map((game) => (
-          <Card key={game.title}>
+        {Object.entries(gamesRegistry).map(([key, game]) => (
+          <Card className="flex flex-col" key={key}>
             <CardHeader>
               <CardTitle>{game.title}</CardTitle>
               <CardDescription>{game.description}</CardDescription>
             </CardHeader>
-            <CardContent>
-              <Link href={game.href}>
+            <CardContent className="mt-auto">
+              <Link href={`/${key}`}>
                 <Button className="w-full">Start Game</Button>
               </Link>
             </CardContent>
