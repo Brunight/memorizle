@@ -22,7 +22,6 @@ export default function RootLayout({
           attribute="class"
           defaultTheme="system"
           enableSystem
-          disableTransitionOnChange
         >
           <div className="relative flex min-h-screen flex-col">
             <Header />
