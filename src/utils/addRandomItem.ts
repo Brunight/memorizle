@@ -10,7 +10,9 @@ export const addRandomItem = (items: GameItem[], data?: GameItem[]): GameItem | 
 
   if (items.find(item => item.answer === newItem?.answer)) return addRandomItem(items)
 
-  !items.find(item => item.answer === newItem?.answer) && items.push(newItem!)
+  if (!items.find(item => item.answer === newItem?.answer)) {
+    items.push(newItem!)
+  }
 
   return newItem
 }

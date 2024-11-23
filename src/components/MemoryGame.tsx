@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -32,13 +32,13 @@ export default function MemoryGame({
   const [currentItem, setCurrentItem] = useState(initialItem ?? items[0]);
   const [hits, setHits] = useState<GameItem[]>([]);
 
-  const showAnswer = () => {
+  const showAnswer = useCallback(() => {
     if (gameState === 'showing-item') {
       setGameState('showing-answer');
     }
-  };
+  }, [gameState]);
 
-  const handleResponse = (wasCorrect: boolean) => {
+  const handleResponse = useCallback((wasCorrect: boolean) => {
     if (gameState === 'showing-answer') {
       setGameState('showing-item');
 
@@ -49,7 +49,7 @@ export default function MemoryGame({
       const newItem = getRandomAbleItem(hits, items, currentItem);
       setCurrentItem(newItem!);
     }
-  };
+  }, [gameState, currentItem, hits, items]);
 
   // Add keyboard shortcuts
   useEffect(() => {
@@ -80,7 +80,7 @@ export default function MemoryGame({
     return () => {
       window.removeEventListener('keydown', handleKeyPress);
     };
-  }, [gameState]); // Re-run effect when gameState changes
+  }, [gameState, handleResponse, showAnswer]); // Re-run effect when gameState changes
 
   return (
     <Card className="w-[400px]">
