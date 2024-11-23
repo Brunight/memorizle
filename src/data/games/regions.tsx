@@ -581,8 +581,8 @@ export const regionsGame: GameData = {
       component: <CountryZoom countryName="Moçambique" />,
     },
     {
-      answer: "Moldova",
-      component: <CountryZoom countryName="Moldova" />,
+      answer: "Moldávia",
+      component: <CountryZoom countryName="Moldávia" />,
     },
     {
       answer: "Mônaco",

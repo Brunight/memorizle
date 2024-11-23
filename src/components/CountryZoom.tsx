@@ -80,7 +80,7 @@ export function CountryZoom({ countryName }: CountryZoomProps) {
         ref={svgRef}
         id="map"
         viewBox="0.35 0.25 1009.11 665.24"
-        fill="hsl(var(--foreground) / .5)"
+        fill="hsl(var(--foreground) / .5  )"
         className="w-full h-full"
       >
         {" "}
