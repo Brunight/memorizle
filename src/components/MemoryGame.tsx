@@ -94,10 +94,11 @@ export default function MemoryGame({
     };
   }, [gameState, handleResponse, showAnswer]); // Re-run effect when gameState change
 
-  // useEffect(() => {
-  //   const newItem = getRandomAbleItem([], items, currentItem);
-  //   setItemsInGame((prev) => [...prev, newItem!]);
-  // }, [currentItem, items]);
+  useEffect(() => {
+    const newItem = getRandomAbleItem([], items, currentItem);
+    setItemsInGame((prev) => [...prev, newItem!]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <Card className="w-full lg:w-2/4">
