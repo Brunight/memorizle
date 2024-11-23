@@ -94,10 +94,10 @@ export default function MemoryGame({
     };
   }, [gameState, handleResponse, showAnswer]); // Re-run effect when gameState change
 
-  useEffect(() => {
-    const newItem = getRandomAbleItem([], items, currentItem);
-    setItemsInGame((prev) => [...prev, newItem!]);
-  }, []);
+  // useEffect(() => {
+  //   const newItem = getRandomAbleItem([], items, currentItem);
+  //   setItemsInGame((prev) => [...prev, newItem!]);
+  // }, [currentItem, items]);
 
   return (
     <Card className="w-full lg:w-2/4">
@@ -170,30 +170,30 @@ export default function MemoryGame({
                   >
                     {currentItem.answer}
                   </motion.div>
-                  <div className="flex flex-col items-center gap-2">
-                    <div className="flex gap-4">
-                      <div className="flex flex-col items-center">
-                        <Button
-                          onClick={() => handleResponse(false)}
-                          variant="destructive"
-                        >
-                          Got it Wrong
-                        </Button>
-                        <span className="text-sm text-muted-foreground mt-1">
-                          Press A
-                        </span>
-                      </div>
-                      <div className="flex flex-col items-center">
-                        <Button
-                          onClick={() => handleResponse(true)}
-                          variant="default"
-                        >
-                          Got it Right
-                        </Button>
-                        <span className="text-sm text-muted-foreground mt-1">
-                          Press D
-                        </span>
-                      </div>
+                  <div className="flex justify-between gap-4 mt-4">
+                    <div className="flex flex-col items-center gap-2 w-full">
+                      <Button
+                        onClick={() => handleResponse(false)}
+                        variant="destructive"
+                        className="w-full"
+                      >
+                        Got it Wrong
+                      </Button>
+                      <span className="text-sm text-muted-foreground">
+                        Press A
+                      </span>
+                    </div>
+                    <div className="flex flex-col items-center gap-2 w-full">
+                      <Button
+                        onClick={() => handleResponse(true)}
+                        variant="success"
+                        className="w-full"
+                      >
+                        Got it Right
+                      </Button>
+                      <span className="text-sm text-muted-foreground">
+                        Press D
+                      </span>
                     </div>
                   </div>
                 </motion.div>

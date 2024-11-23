@@ -1,6 +1,6 @@
-import Link from "next/link";
-import { ThemeToggle } from "./theme-toggle";
-import { gamesRegistry } from "@/data/games";
+import Link from "next/link"
+import { ThemeSelector } from "./theme-selector"
+import { gamesRegistry } from "@/data/games"
 
 export function Header() {
   return (
@@ -47,7 +47,7 @@ export function Header() {
           </nav>
 
           <div className="hidden md:flex items-center space-x-2">
-            <ThemeToggle />
+            <ThemeSelector />
           </div>
         </div>
       </div>

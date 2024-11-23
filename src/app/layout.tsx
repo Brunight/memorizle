@@ -1,13 +1,14 @@
-import { Inter } from "next/font/google"
-import { ThemeProvider } from "@/components/theme-provider"
-import { Header } from "@/components/header"
+import { Inter } from 'next/font/google'
+import { ThemeProvider } from '@/components/theme-provider'
+import {Header} from '@/components/header'
+import {Footer} from '@/components/footer'
 import "./globals.css"
 
-const inter = Inter({ subsets: ["latin"] })
+const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-  title: "Memorizle - Memory Games",
-  description: "Learn through memory games",
+  title: 'Memorizle - Fun Memory Games',
+  description: 'Boost your memory skills with engaging image-based games.',
 }
 
 export default function RootLayout({
@@ -17,20 +18,16 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-        >
-          <div className="relative flex min-h-screen flex-col">
-            <Header />
-            <main className="flex-1 mx-auto w-full max-w-[1220px] px-4">
-              {children}
-            </main>
-          </div>
+      <body className={`${inter.className} flex flex-col min-h-screen`}>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <Header />
+          <main className="flex-grow">
+            {children}
+          </main>
+          <Footer />
         </ThemeProvider>
       </body>
     </html>
   )
 }
+
