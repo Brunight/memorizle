@@ -39,7 +39,8 @@ export default function MemoryGame({
 
   const handleResponse = useCallback(
     (wasCorrect: boolean) => {
-      if (hits.length === items.length) return;
+      console.log('LOG:','currentItem', currentItem);
+      if (hits.length === items.length || !currentItem) return;
 
       if (gameState === "showing-answer") {
         setGameState("showing-item");
@@ -101,17 +102,17 @@ export default function MemoryGame({
   }, []);
 
   return (
-    <Card className="w-full lg:w-2/4">
+    <Card className="w-full max-w-[800px] lg:w-2/4 h-full">
       <CardHeader>
         <CardTitle className="text-center">{title}</CardTitle>
         <GameProgress current={hits.length} total={items.length} />
       </CardHeader>
-      {hits.length === items.length ? (
+      {hits.length === items.length || !currentItem  ? (
         <div className="flex flex-col items-center gap-6">
           <span className="text-2xl font-bold">You Win!</span>
         </div>
       ) : (
-        <CardContent className="flex flex-col items-center gap-6">
+        <CardContent className="flex flex-col items-center gap-6 h-full">
           <motion.div
             className="w-full aspect-video relative border border-border rounded-lg overflow-hidden"
             key={currentItem.answer}
@@ -136,7 +137,7 @@ export default function MemoryGame({
             {"component" in currentItem && currentItem.component}
           </motion.div>
 
-          <div className="h-[100px] flex items-center">
+          <div className="flex items-center min-h-56">
             <AnimatePresence mode="wait">
               {gameState === "showing-item" ? (
                 <motion.div
@@ -164,7 +165,7 @@ export default function MemoryGame({
                   transition={{ duration: 0.2 }}
                 >
                   <motion.div
-                    className="text-xl font-bold text-center"
+                    className="text-xl font-bold text-center line-clamp-4"
                     initial={{ scale: 0.9 }}
                     animate={{ scale: 1 }}
                     transition={{ type: "spring", stiffness: 200 }}

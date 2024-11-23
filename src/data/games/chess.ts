@@ -104,22 +104,6 @@ export const chessGame: GameData = {
       imageUrl: "/images/chess/rti-opening-rti-gambit-25.png",
     },
     {
-      answer: "Sicilian Defense: Smith-Morra Gambit",
-      imageUrl: "/images/chess/sicilian-defense-smith-morra-gambit-1.png",
-    },
-    {
-      answer: "Closed Sicilian Defense",
-      imageUrl: "/images/chess/closed-sicilian-defense-2.png",
-    },
-    {
-      answer: "Réti Opening: Réti Gambit",
-      imageUrl: "/images/chess/rti-opening-rti-gambit-3.png",
-    },
-    {
-      answer: "Trompowsky Attack",
-      imageUrl: "/images/chess/trompowsky-attack-4.png",
-    },
-    {
       answer: "King's Gambit Declined: Falkbeer Countergambit",
       imageUrl: "/images/chess/kings-gambit-declined-falkbeer-countergambit-5.png",
     },
@@ -230,14 +214,6 @@ export const chessGame: GameData = {
     {
       answer: "French Defense: Exchange Variation",
       imageUrl: "/images/chess/french-defense-exchange-variation-7.png",
-    },
-    {
-      answer: "Petrov's Defense: Steinitz Attack",
-      imageUrl: "/images/chess/petrovs-defense-steinitz-attack-8.png",
-    },
-    {
-      answer: "Queen's Pawn Opening: Torre Attack",
-      imageUrl: "/images/chess/queens-pawn-opening-torre-attack-9.png",
     },
     {
       answer: "Richter-Veresov Attack",
@@ -372,23 +348,12 @@ export const chessGame: GameData = {
       imageUrl: "/images/chess/grnfeld-defense-brinckmann-attack-17.png",
     },
     {
-      answer:
-        "Sicilian Defense: Old Sicilian, Open, Accelerated Dragon Variation",
-      imageUrl:
-        "sicilian-defense-old-sicilian-open-accelerated-dragon-variation-18.png",
-    },
-    {
       answer: "Caro-Kann Defense: Classical Variation",
       imageUrl: "/images/chess/caro-kann-defense-classical-variation-19.png",
     },
     {
       answer: "Scotch Game: Classical Variation",
       imageUrl: "/images/chess/scotch-game-classical-variation-20.png",
-    },
-    {
-      answer: "Queen's Gambit Declined: Three Knights, Semi-Tarrasch Defense",
-      imageUrl:
-        "queens-gambit-declined-three-knights-semi-tarrasch-defense-21.png",
     },
     {
       answer: "Semi-Slav Defense",
@@ -463,11 +428,6 @@ export const chessGame: GameData = {
       imageUrl: "/images/chess/kings-indian-defense-orthodox-variation-14.png",
     },
     {
-      answer: "Sicilian Defense: Open, Classical, Richter-Rauzer Variation",
-      imageUrl:
-        "sicilian-defense-open-classical-richter-rauzer-variation-15.png",
-    },
-    {
       answer: "King's Indian Defense: Averbakh Variation",
       imageUrl: "/images/chess/kings-indian-defense-averbakh-variation-16.png",
     },
@@ -478,11 +438,6 @@ export const chessGame: GameData = {
     {
       answer: "Queen's Gambit Declined: Orthodox Defense",
       imageUrl: "/images/chess/queens-gambit-declined-orthodox-defense-18.png",
-    },
-    {
-      answer: "Dutch Defense: Fianchetto, Ilyin-Zhenevsky, Stonewall Variation",
-      imageUrl:
-        "dutch-defense-fianchetto-ilyin-zhenevsky-stonewall-variation-19.png",
     },
     {
       answer: "King's Indian Defense: Bayonet Attack",
