@@ -4,6 +4,7 @@ import { capitalsGame } from "./capitals";
 import { GameData } from "@/types/game";
 import { periodicTableGame } from "./periodicTable";
 import { regionsGame } from "./regions";
+import { chessGame } from "./chess";
 
 interface GameRegistry {
   [key: string]: {
@@ -38,5 +39,10 @@ export const gamesRegistry: GameRegistry = {
     title: "Regions",
     description: "Test your knowledge of world geography by identifying countries from their shapes and outlines. A perfect way to improve your understanding of global geography and borders.",
     data: regionsGame,
+  },
+  chess: {
+    title: "Chess Openings",
+    description: "Sharpen your chess skills with this memory game focused on famous chess openings. Learn and recognize classic strategies while improving your tactical understanding of the game.",
+    data: chessGame,
   },
 };
