@@ -1,16 +1,8 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { Beaker, Flag, Globe, Palette, Map } from 'lucide-react'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { gamesRegistry } from '@/data/games'
-
-const GAME_ICONS = {
-  flags: <Flag className="h-8 w-8 text-primary" />,
-  paintings: <Palette className="h-8 w-8 text-primary" />,
-  capitals: <Globe className="h-8 w-8 text-primary" />,
-  "periodic-table": <Beaker className="h-8 w-8 text-primary" />,
-  regions: <Map className="h-8 w-8 text-primary" />
-} as const
+import { GAME_ICONS } from '@/config/game-icons'
 
 export function Features() {
   const features = Object.entries(gamesRegistry).map(([key, game]) => ({
