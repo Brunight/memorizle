@@ -4,6 +4,8 @@ import { ThemeToggle } from "./theme-toggle"
 const navigation = [
   { name: 'Flags', href: '/flags' },
   // Add more games here as they're created
+  
+  { name: 'Paintings', href: '/paintings' },
 ]
 
 export function Header() {
