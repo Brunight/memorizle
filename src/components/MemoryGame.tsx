@@ -127,7 +127,7 @@ export default function MemoryGame({
               onSwipeLeft={() => handleResponse(false)}
               onSwipeRight={() => handleResponse(true)}
             >
-              <div className="flex flex-col items-center gap-6 relative z-20 max-h-full">
+              <div className="flex flex-col items-center gap-6 relative z-20 max-h-full w-full">
                 {"imageUrl" in currentItem && (
                   <GameImage
                     src={currentItem.imageUrl}
@@ -143,7 +143,11 @@ export default function MemoryGame({
                     </span>
                   </div>
                 )}
-                {"component" in currentItem && currentItem.component}
+                {"component" in currentItem && (
+                  <div className="aspect-video w-full h-full flex items-center justify-center">
+                    {currentItem.component}
+                  </div>
+                )}
               </div>
             </Swipeable>
           </motion.div>
