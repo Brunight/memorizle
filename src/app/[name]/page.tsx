@@ -1,7 +1,8 @@
 import { notFound } from "next/navigation"
-import MemoryGame from "@/components/MemoryGame"
 import { gamesRegistry } from "@/data/games"
-import { getRandomAbleItem } from "@/utils/getRandomAbleItem"
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
+import Link from "next/link"
+import { GAME_ICONS } from "@/config/game-icons"
 
 type Params = Promise<{ name: string }>
 
@@ -9,9 +10,21 @@ interface GamePageProps {
   params: Params
 }
 
+const GAME_MODES = [
+  {
+    id: "memorize",
+    title: "Memorize",
+    description: "Test your memory by remembering and identifying items"
+  },
+  {
+    id: "speedrun",
+    title: "Speedrun",
+    description: "Race against time to identify as many items as possible"
+  }
+]
+
 export default async function GamePage({ params }: GamePageProps) {
   const { name: gameName } = await params
-
   const game = gamesRegistry[gameName]
   
   if (!game) {
@@ -19,13 +32,28 @@ export default async function GamePage({ params }: GamePageProps) {
   }
 
   return (
-    <div className="min-h-[calc(100vh-3.5rem)] flex items-center justify-center py-8">
-      <MemoryGame 
-        items={game.data.items} 
-        title={game.data.title}
-        useOptimizedImages={false}
-        initialItem={getRandomAbleItem([], game.data.items, undefined)!}
-      />
+    <div className="container mx-auto py-8 px-4">
+      <div className="flex items-center gap-3 mb-8">
+        {GAME_ICONS[gameName as keyof typeof GAME_ICONS]}
+        <h1 className="text-4xl font-bold">{game.title}</h1>
+      </div>
+      
+      <p className="text-muted-foreground mb-8">{game.description}</p>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {GAME_MODES.map((mode) => (
+          <Link key={mode.id} href={`/${gameName}/${mode.id}`}>
+            <Card className="h-full cursor-pointer transition-all duration-200 hover:scale-[1.02] hover:border-primary/50">
+              <CardHeader>
+                <CardTitle>{mode.title}</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground">{mode.description}</p>
+              </CardContent>
+            </Card>
+          </Link>
+        ))}
+      </div>
     </div>
   )
 } 

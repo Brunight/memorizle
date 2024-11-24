@@ -28,7 +28,7 @@ export function Features() {
               <CardContent className="flex-grow">
                 <p className="text-muted-foreground mb-4">{feature.description}</p>
                 <Button asChild className="w-full">
-                  <Link href={feature.href}>Play Now</Link>
+                  <Link href={feature.href}>Explore Game Modes</Link>
                 </Button>
               </CardContent>
             </Card>

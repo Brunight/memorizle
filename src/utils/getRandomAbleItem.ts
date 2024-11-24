@@ -4,13 +4,14 @@ import { genRandomNumbers } from "./randomNumber";
 export const getRandomAbleItem = (
   hitItems: GameItem[],
   items: GameItem[],
-  lastItem: GameItem | undefined
+  lastItem: GameItem | undefined,
+  repeatProbability = 0.1
 ): GameItem | undefined => {
   const notHitItems = items.filter(
     (item) => !hitItems.some((hItem) => hItem.answer === item.answer)
   );
 
-  const returnHitItems = Math.random() > 0.9 && !!hitItems.length;
+  const returnHitItems = Math.random() > (1 - repeatProbability) && !!hitItems.length;
 
   const randomNumber = genRandomNumbers(
     returnHitItems ? hitItems.length : notHitItems.length
@@ -21,7 +22,7 @@ export const getRandomAbleItem = (
     : notHitItems[randomNumber];
 
   if (lastItem?.answer === currentItem?.answer && items.length > 1)
-    return getRandomAbleItem(hitItems, items, lastItem);
+    return getRandomAbleItem(hitItems, items, lastItem, repeatProbability);
 
   return currentItem;
 };
