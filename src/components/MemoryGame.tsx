@@ -8,6 +8,8 @@ import { GameProgress } from "@/components/game-progress";
 import { GameImage } from "@/components/game-image";
 import { getRandomAbleItem } from "@/utils/getRandomAbleItem";
 import { GameItem } from "@/types/game";
+import { Swipeable } from "@/components/Swipeable";
+import { CircleX, CircleCheck } from "lucide-react";
 
 type GameState = "showing-item" | "showing-answer";
 
@@ -97,11 +99,11 @@ export default function MemoryGame({
   useEffect(() => {
     const newItem = getRandomAbleItem([], items, currentItem);
     setItemsInGame((prev) => [...prev, newItem!]);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
-    <Card className="w-full lg:w-2/4">
+    <Card className="w-full lg:w-2/4" onClick={showAnswer}>
       <CardHeader>
         <CardTitle className="text-center">{title}</CardTitle>
         <GameProgress current={hits.length} total={items.length} />
@@ -111,32 +113,41 @@ export default function MemoryGame({
           <span className="text-2xl font-bold">You Win!</span>
         </div>
       ) : (
-        <CardContent className="flex flex-col items-center gap-6">
+        <CardContent className="max-h-full">
           <motion.div
-            className="w-full aspect-video relative border border-border rounded-lg overflow-hidden"
+            className="w-full aspect-video relative border border-border rounded-lg overflow-hidden bg-muted"
             key={currentItem.answer}
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.3 }}
           >
-            {"imageUrl" in currentItem && (
-              <GameImage
-                src={currentItem.imageUrl}
-                alt="Item to guess"
-                useOptimization={useOptimizedImages}
-              />
-            )}
-            {"text" in currentItem && (
-              <div className="w-full h-full flex items-center justify-center">
-                <span className="text-3xl font-bold text-center">
-                  {currentItem.text}
-                </span>
+            <Swipeable
+              swipeThreshold={100}
+              maxSwipeDistance={100}
+              onSwipeLeft={() => handleResponse(false)}
+              onSwipeRight={() => handleResponse(true)}
+            >
+              <div className="flex flex-col items-center gap-6 relative z-20 max-h-full">
+                {"imageUrl" in currentItem && (
+                  <GameImage
+                    src={currentItem.imageUrl}
+                    alt="Item to guess"
+                    className="aspect-video"
+                    useOptimization={useOptimizedImages}
+                  />
+                )}
+                {"text" in currentItem && (
+                  <div className="w-full h-full flex items-center justify-center">
+                    <span className="text-3xl font-bold text-center">
+                      {currentItem.text}
+                    </span>
+                  </div>
+                )}
+                {"component" in currentItem && currentItem.component}
               </div>
-            )}
-            {"component" in currentItem && currentItem.component}
+            </Swipeable>
           </motion.div>
-
-          <div className="h-[100px] flex items-center">
+          <div className="h-[140px] flex justify-center mt-6">
             <AnimatePresence mode="wait">
               {gameState === "showing-item" ? (
                 <motion.div
@@ -202,7 +213,8 @@ export default function MemoryGame({
             </AnimatePresence>
           </div>
         </CardContent>
-      )}
-    </Card>
+      )
+      }
+    </Card >
   );
 }
