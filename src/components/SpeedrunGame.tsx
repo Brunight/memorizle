@@ -8,6 +8,7 @@ import { GameProgress } from "@/components/game-progress";
 import { GameImage } from "@/components/game-image";
 import { getRandomAbleItem } from "@/utils/getRandomAbleItem";
 import { GameItem } from "@/types/game";
+import { Swipeable } from "@/components/Swipeable";
 
 type GameState = "idle" | "showing-item" | "showing-answer" | "finished";
 
@@ -18,27 +19,27 @@ interface SpeedrunGameProps {
   useOptimizedImages?: boolean;
 }
 
-export function SpeedrunGame({ 
-  items, 
-  initialItem, 
+export function SpeedrunGame({
+  items,
+  initialItem,
   title,
-  useOptimizedImages = true 
+  useOptimizedImages = true
 }: SpeedrunGameProps) {
   const [gameState, setGameState] = useState<GameState>("idle");
   const [currentItem, setCurrentItem] = useState(initialItem);
   const [hitItems, setHitItems] = useState<GameItem[]>([]);
   const [time, setTime] = useState(0);
   const [isRunning, setIsRunning] = useState(false);
-  
+
   useEffect(() => {
     let timer: NodeJS.Timeout;
-    
+
     if (isRunning) {
       timer = setInterval(() => {
         setTime(t => t + 1);
       }, 1000);
     }
-    
+
     return () => clearInterval(timer);
   }, [isRunning]);
 
@@ -75,7 +76,7 @@ export function SpeedrunGame({
 
     window.addEventListener("keydown", handleKeyPress);
     return () => window.removeEventListener("keydown", handleKeyPress);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [gameState]);
 
   const handleStart = () => {
@@ -106,7 +107,7 @@ export function SpeedrunGame({
       items.length - hitItems.length === 1 ? undefined : currentItem,
       0
     );
-    
+
     if (hitItems.length >= items.length || !nextItem) {
       setGameState("finished");
       setIsRunning(false);
@@ -124,8 +125,14 @@ export function SpeedrunGame({
     return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`;
   };
 
+  const handleCardClick = () => {
+    if (gameState === "showing-item") {
+      handleShowAnswer();
+    }
+  };
+
   return (
-    <Card className="w-full max-w-[800px] lg:w-2/4 h-full">
+    <Card className="w-full max-w-[800px] lg:w-2/4 h-full" onClick={handleCardClick}>
       <CardHeader>
         <CardTitle className="flex justify-between items-center">
           <span>{title}</span>
@@ -157,21 +164,31 @@ export function SpeedrunGame({
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.3 }}
           >
-            {'imageUrl' in currentItem! ? (
-              <GameImage
-                src={currentItem!.imageUrl}
-                alt="Item to guess"
-                useOptimization={useOptimizedImages}
-              />
-            ) : 'component' in currentItem! ? (
-              currentItem!.component
-            ) : (
-              <div className="w-full h-full flex items-center justify-center">
-                <span className="text-3xl font-bold text-center">
-                  {currentItem!.text}
-                </span>
+            <Swipeable
+              swipeThreshold={100}
+              maxSwipeDistance={100}
+              onSwipeLeft={() => gameState === "showing-answer" && handleNext(false)}
+              onSwipeRight={() => gameState === "showing-answer" && handleNext(true)}
+            >
+              <div className="flex flex-col items-center gap-6 relative z-20 max-h-full">
+                {'imageUrl' in currentItem! ? (
+                  <GameImage
+                    src={currentItem!.imageUrl}
+                    alt="Item to guess"
+                    className="aspect-video"
+                    useOptimization={useOptimizedImages}
+                  />
+                ) : 'component' in currentItem! ? (
+                  currentItem!.component
+                ) : (
+                  <div className="w-full h-full flex items-center justify-center">
+                    <span className="text-3xl font-bold text-center">
+                      {currentItem!.text}
+                    </span>
+                  </div>
+                )}
               </div>
-            )}
+            </Swipeable>
           </motion.div>
 
           <div className="flex items-center min-h-56">

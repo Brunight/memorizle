@@ -24,6 +24,7 @@ export function GameImage({
           alt={alt}
           fill
           style={{ objectFit: 'contain' }}
+          draggable={false}
           priority
         />
       </>
@@ -36,6 +37,7 @@ export function GameImage({
       <img 
         src={src} 
         alt={alt} 
+        draggable={false}
         className={`w-full h-full object-contain ${className}`}
       />
     </>
