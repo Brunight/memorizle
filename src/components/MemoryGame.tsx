@@ -103,7 +103,7 @@ export default function MemoryGame({
   }, []);
 
   return (
-    <Card className="w-full lg:w-2/4" onClick={showAnswer}>
+    <Card className="w-full lg:w-2/4" onMouseDown={showAnswer}>
       <CardHeader>
         <CardTitle className="text-center">{title}</CardTitle>
         <GameProgress current={hits.length} total={items.length} />

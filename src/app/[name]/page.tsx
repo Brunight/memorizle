@@ -19,7 +19,7 @@ const GAME_MODES = [
   {
     id: "speedrun",
     title: "Speedrun",
-    description: "Race against time to identify as many items as possible"
+    description: "How long does it take you to complete all items?"
   }
 ]
 

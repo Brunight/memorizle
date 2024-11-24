@@ -44,6 +44,7 @@ export function SpeedrunGame({
   }, [isRunning]);
 
   useEffect(() => {
+    console.log('LOG:','gameState', gameState);
     const handleKeyPress = (event: KeyboardEvent) => {
       if (
         event.target instanceof HTMLInputElement ||
@@ -132,7 +133,7 @@ export function SpeedrunGame({
   };
 
   return (
-    <Card className="w-full max-w-[800px] lg:w-2/4 h-full" onClick={handleCardClick}>
+    <Card className="w-full max-w-[800px] lg:w-2/4 h-full" onMouseDown={handleCardClick}>
       <CardHeader>
         <CardTitle className="flex justify-between items-center">
           <span>{title}</span>
@@ -200,7 +201,7 @@ export function SpeedrunGame({
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.2 }}
+                  transition={{ duration: 0.01 }}
                 >
                   <Button onClick={handleShowAnswer} size="lg">
                     Show Answer
@@ -216,7 +217,7 @@ export function SpeedrunGame({
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.2 }}
+                  transition={{ duration: 0.01 }}
                 >
                   <motion.div
                     className="text-xl font-bold text-center line-clamp-4"

@@ -5,8 +5,11 @@ export const getRandomAbleItem = (
   hitItems: GameItem[],
   items: GameItem[],
   lastItem: GameItem | undefined,
-  repeatProbability = 0.1
+  repeatProbability = 0.1,
+  attempts = 0
 ): GameItem | undefined => {
+  if (attempts > items.length * 4) return
+
   const notHitItems = items.filter(
     (item) => !hitItems.some((hItem) => hItem.answer === item.answer)
   );
@@ -22,7 +25,7 @@ export const getRandomAbleItem = (
     : notHitItems[randomNumber];
 
   if (lastItem?.answer === currentItem?.answer && items.length > 1)
-    return getRandomAbleItem(hitItems, items, lastItem, repeatProbability);
+    return getRandomAbleItem(hitItems, items, lastItem, repeatProbability, attempts + 1);
 
   return currentItem;
 };

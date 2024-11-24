@@ -37,7 +37,7 @@ export function Header() {
 
 
           <nav
-            className="absolute top-14 left-0 w-full bg-background shadow-md hidden peer-checked:flex flex-col md:relative md:top-0 md:w-auto md:flex md:flex-row md:items-center md:space-x-6 text-sm font-medium lg:shadow-none"
+            className="absolute top-14 left-0 w-full bg-background lg:bg-transparent shadow-md hidden peer-checked:flex flex-col md:relative md:top-0 md:w-auto md:flex md:flex-row md:items-center md:space-x-6 text-sm font-medium lg:shadow-none"
           >
             <div className="p-4 md:p-0 md:flex md:space-y-0 md:space-x-6">
               {Object.entries(gamesRegistry).map(([key, game]) => (
