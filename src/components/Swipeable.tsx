@@ -35,6 +35,7 @@ export function Swipeable({
   );
 
   const handleDragEnd = async (
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     _: any,
     { offset: { x }, velocity: { x: vx } }: PanInfo
   ) => {
