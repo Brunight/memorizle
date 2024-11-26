@@ -31,6 +31,7 @@ export default function MemoryGame({
     initialItem ?? items[0],
   ]);
   const [hits, setHits] = useState<GameItem[]>([]);
+  const [highScore, setHighScore] = useState(0);
 
   const showAnswer = useCallback(() => {
     if (gameState === "showing-item") {
@@ -40,7 +41,7 @@ export default function MemoryGame({
 
   const handleResponse = useCallback(
     (wasCorrect: boolean) => {
-      console.log('LOG:', 'currentItem', currentItem);
+      console.log("LOG:", "currentItem", currentItem);
       if (hits.length === items.length || !currentItem) return;
 
       if (gameState === "showing-answer") {
@@ -102,11 +103,31 @@ export default function MemoryGame({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  // Add useEffect to update localStorage when hits change
+  useEffect(() => {
+    const storageKey = `memory-game-${title}`;
+    const previousBest = localStorage.getItem(storageKey);
+    const currentScore = hits.length;
+
+    if (!previousBest || currentScore > parseInt(previousBest)) {
+      localStorage.setItem(storageKey, currentScore.toString());
+      setHighScore(currentScore);
+    } else if (highScore === 0 && previousBest) {
+      setHighScore(parseInt(previousBest));
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [hits.length, title]);
+
   return (
     <Card className="w-full lg:w-2/4" onMouseDown={showAnswer}>
       <CardHeader>
         <CardTitle className="text-center">{title}</CardTitle>
-        <GameProgress current={hits.length} total={items.length} />
+        <div className="flex flex-col items-center gap-2">
+          <GameProgress current={hits.length} total={items.length} />
+          <span className="text-sm text-muted-foreground">
+            Best Score: {highScore}/{items.length}
+          </span>
+        </div>
       </CardHeader>
       {hits.length === items.length || !currentItem ? (
         <div className="flex flex-col items-center gap-6">
@@ -217,8 +238,7 @@ export default function MemoryGame({
             </AnimatePresence>
           </div>
         </CardContent>
-      )
-      }
-    </Card >
+      )}
+    </Card>
   );
 }

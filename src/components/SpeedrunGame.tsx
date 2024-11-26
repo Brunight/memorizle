@@ -23,20 +23,30 @@ export function SpeedrunGame({
   items,
   initialItem,
   title,
-  useOptimizedImages = true
+  useOptimizedImages = true,
 }: SpeedrunGameProps) {
   const [gameState, setGameState] = useState<GameState>("idle");
   const [currentItem, setCurrentItem] = useState(initialItem);
   const [hitItems, setHitItems] = useState<GameItem[]>([]);
   const [time, setTime] = useState(0);
   const [isRunning, setIsRunning] = useState(false);
+  const [bestTime, setBestTime] = useState<number | null>(null);
+
+  useEffect(() => {
+    // Load best time from localStorage on component mount
+    const storageKey = `speedrun-best-time-${title}`;
+    const savedBestTime = localStorage.getItem(storageKey);
+    if (savedBestTime) {
+      setBestTime(parseInt(savedBestTime));
+    }
+  }, [title]);
 
   useEffect(() => {
     let timer: NodeJS.Timeout;
 
     if (isRunning) {
       timer = setInterval(() => {
-        setTime(t => t + 1);
+        setTime((t) => t + 1);
       }, 1000);
     }
 
@@ -44,7 +54,7 @@ export function SpeedrunGame({
   }, [isRunning]);
 
   useEffect(() => {
-    console.log('LOG:','gameState', gameState);
+    console.log("LOG:", "gameState", gameState);
     const handleKeyPress = (event: KeyboardEvent) => {
       if (
         event.target instanceof HTMLInputElement ||
@@ -113,7 +123,16 @@ export function SpeedrunGame({
       setGameState("finished");
       setIsRunning(false);
 
-      return
+      // Save best time to localStorage if it's better than previous
+      const storageKey = `speedrun-best-time-${title}`;
+      const previousBestTime = localStorage.getItem(storageKey);
+
+      if (!previousBestTime || time < parseInt(previousBestTime)) {
+        localStorage.setItem(storageKey, time.toString());
+        setBestTime(time);
+      }
+
+      return;
     } else {
       setCurrentItem(nextItem);
       setGameState("showing-item");
@@ -123,7 +142,7 @@ export function SpeedrunGame({
   const formatTime = (seconds: number) => {
     const minutes = Math.floor(seconds / 60);
     const remainingSeconds = seconds % 60;
-    return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`;
+    return `${minutes}:${remainingSeconds.toString().padStart(2, "0")}`;
   };
 
   const handleCardClick = () => {
@@ -133,28 +152,49 @@ export function SpeedrunGame({
   };
 
   return (
-    <Card className="w-full max-w-[800px] lg:w-2/4 h-full" onMouseDown={handleCardClick}>
+    <Card
+      className="w-full max-w-[800px] lg:w-2/4 h-full"
+      onMouseDown={handleCardClick}
+    >
       <CardHeader>
         <CardTitle className="flex justify-between items-center">
           <span>{title}</span>
-          <span className="text-2xl font-mono">{formatTime(time)}</span>
+          <div className="flex flex-col items-end">
+            <span className="text-2xl font-mono">{formatTime(time)}</span>
+            {bestTime && (
+              <span className="text-sm text-muted-foreground">
+                Best: {formatTime(bestTime)}
+              </span>
+            )}
+          </div>
         </CardTitle>
         <GameProgress current={hitItems.length} total={items.length} />
       </CardHeader>
       {gameState === "idle" ? (
         <CardContent className="flex flex-col items-center gap-6">
           <p className="text-muted-foreground text-center">
-            How fast can you identify all items? Press <span className="text-sm">SPACE</span> to begin!
+            How fast can you identify all items? Press{" "}
+            <span className="text-sm">SPACE</span> to begin!
           </p>
-          <Button onClick={handleStart} size="lg">Start Game</Button>
+          <Button onClick={handleStart} size="lg">
+            Start Game
+          </Button>
         </CardContent>
       ) : gameState === "finished" ? (
         <CardContent className="flex flex-col items-center gap-6">
           <span className="text-2xl font-bold">Congratulations!</span>
           <p className="text-muted-foreground text-center">
-            You completed the game in {formatTime(time)} with {hitItems.length} correct answers!
+            You completed the game in {formatTime(time)} with {hitItems.length}{" "}
+            correct answers!
+            {bestTime && time < bestTime && (
+              <span className="block font-medium text-primary">
+                New best time! Previous: {formatTime(bestTime)}
+              </span>
+            )}
           </p>
-          <Button onClick={handleStart} size="lg">Play Again</Button>
+          <Button onClick={handleStart} size="lg">
+            Play Again
+          </Button>
         </CardContent>
       ) : (
         <CardContent className="flex flex-col items-center gap-6 h-full">
@@ -168,18 +208,22 @@ export function SpeedrunGame({
             <Swipeable
               swipeThreshold={100}
               maxSwipeDistance={100}
-              onSwipeLeft={() => gameState === "showing-answer" && handleNext(false)}
-              onSwipeRight={() => gameState === "showing-answer" && handleNext(true)}
+              onSwipeLeft={() =>
+                gameState === "showing-answer" && handleNext(false)
+              }
+              onSwipeRight={() =>
+                gameState === "showing-answer" && handleNext(true)
+              }
             >
               <div className="flex flex-col items-center gap-6 relative z-20 max-h-full">
-                {'imageUrl' in currentItem! ? (
+                {"imageUrl" in currentItem! ? (
                   <GameImage
                     src={currentItem!.imageUrl}
                     alt="Item to guess"
                     className="aspect-video"
                     useOptimization={useOptimizedImages}
                   />
-                ) : 'component' in currentItem! ? (
+                ) : "component" in currentItem! ? (
                   currentItem!.component
                 ) : (
                   <div className="w-full h-full flex items-center justify-center">

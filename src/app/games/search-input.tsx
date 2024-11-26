@@ -1,36 +1,37 @@
-'use client'
+"use client";
 
-import { Input } from '@/components/ui/input'
-import { useRouter, useSearchParams } from 'next/navigation'
-import { useTransition } from 'react'
-import { useDebounce } from 'use-debounce'
-import { useState, useEffect } from 'react'
+import { Input } from "@/components/ui/input";
+import { useRouter, useSearchParams } from "next/navigation";
+import { useTransition } from "react";
+//@ts-ignore use-debounce is not typed
+import { useDebounce } from "use-debounce";
+import { useState, useEffect } from "react";
 
 interface SearchInputProps {
-  defaultValue: string
+  defaultValue: string;
 }
 
 export function SearchInput({ defaultValue }: SearchInputProps) {
-  const router = useRouter()
-  const searchParams = useSearchParams()
-  const [isPending, startTransition] = useTransition()
-  const [value, setValue] = useState(defaultValue)
-  
-  const [debouncedValue] = useDebounce(value, 300)
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const [isPending, startTransition] = useTransition();
+  const [value, setValue] = useState(defaultValue);
+
+  const [debouncedValue] = useDebounce(value, 300);
 
   // Update URL when debounced value changes
   useEffect(() => {
-    const params = new URLSearchParams(searchParams)
+    const params = new URLSearchParams(searchParams);
     if (debouncedValue) {
-      params.set('q', debouncedValue)
+      params.set("q", debouncedValue);
     } else {
-      params.delete('q')
+      params.delete("q");
     }
-    
+
     startTransition(() => {
-      router.push(`/games?${params.toString()}`)
-    })
-  }, [debouncedValue, router, searchParams])
+      router.push(`/games?${params.toString()}`);
+    });
+  }, [debouncedValue, router, searchParams]);
 
   return (
     <>
@@ -46,5 +47,5 @@ export function SearchInput({ defaultValue }: SearchInputProps) {
         </div>
       )}
     </>
-  )
-} 
+  );
+}
