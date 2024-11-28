@@ -9,19 +9,31 @@ import { GameImage } from "@/components/game-image";
 import { getRandomAbleItem } from "@/utils/getRandomAbleItem";
 import { GameItem } from "@/types/game";
 import { Swipeable } from "@/components/Swipeable";
-
+import { GameStats } from "./GameStats";
 type GameState = "showing-item" | "showing-answer";
+
+export type MemoryGameStats = {
+  bestScore: number;
+  stats: {
+    [key: string]: {
+      correct: number;
+      total: number;
+    };
+  };
+};
 
 interface MemoryGameProps {
   items: GameItem[];
   initialItem?: GameItem;
   title: string;
+  gameName: string;
   useOptimizedImages?: boolean;
 }
 
 export default function MemoryGame({
   items,
   title,
+  gameName,
   initialItem,
   useOptimizedImages = true,
 }: MemoryGameProps) {
@@ -39,6 +51,28 @@ export default function MemoryGame({
     }
   }, [gameState]);
 
+  const getGameStats = useCallback((): GameStats => {
+    const storageKey = `memorizle-${gameName}`;
+    console.log(storageKey);
+    const gameStatsString = localStorage.getItem(storageKey);
+    if (!gameStatsString) {
+      return {
+        gameName,
+        memoryStats: { bestScore: 0, stats: {} },
+        speedrunStats: { bestTime: 0 },
+      };
+    }
+    return JSON.parse(gameStatsString);
+  }, [gameName]);
+
+  const updateGameStats = useCallback(
+    (newStats: GameStats) => {
+      const storageKey = `memorizle-${gameName}`;
+      localStorage.setItem(storageKey, JSON.stringify(newStats));
+    },
+    [gameName]
+  );
+
   const handleResponse = useCallback(
     (wasCorrect: boolean) => {
       console.log("LOG:", "currentItem", currentItem);
@@ -46,6 +80,29 @@ export default function MemoryGame({
 
       if (gameState === "showing-answer") {
         setGameState("showing-item");
+
+        const gameStats = getGameStats();
+        const currentTotal =
+          gameStats.memoryStats.stats[currentItem.answer]?.total || 0;
+        const currentCorrect =
+          gameStats.memoryStats.stats[currentItem.answer]?.correct || 0;
+        const newTotal = currentTotal + 1;
+        const newCorrect = wasCorrect
+          ? currentCorrect + 1
+          : Math.max(0, currentCorrect);
+
+        const newStats = {
+          ...gameStats,
+          memoryStats: {
+            ...gameStats.memoryStats,
+            stats: {
+              ...gameStats.memoryStats.stats,
+              [currentItem.answer]: { correct: newCorrect, total: newTotal },
+            },
+          },
+        };
+
+        updateGameStats(newStats);
 
         let newItem: GameItem;
         if (wasCorrect) {
@@ -61,7 +118,15 @@ export default function MemoryGame({
         setCurrentItem(newItem!);
       }
     },
-    [gameState, currentItem, hits, itemsInGame, items]
+    [
+      currentItem,
+      hits,
+      items,
+      gameState,
+      getGameStats,
+      updateGameStats,
+      itemsInGame,
+    ]
   );
 
   // Add keyboard shortcuts
@@ -104,16 +169,17 @@ export default function MemoryGame({
   }, []);
 
   // Add useEffect to update localStorage when hits change
+  // Add useEffect to update localStorage when hits change
   useEffect(() => {
-    const storageKey = `memory-game-${title}`;
-    const previousBest = localStorage.getItem(storageKey);
+    const gameStats = getGameStats();
     const currentScore = hits.length;
 
-    if (!previousBest || currentScore > parseInt(previousBest)) {
-      localStorage.setItem(storageKey, currentScore.toString());
+    if (!gameStats || currentScore > gameStats.memoryStats.bestScore) {
+      gameStats.memoryStats.bestScore = currentScore;
+      updateGameStats(gameStats);
       setHighScore(currentScore);
-    } else if (highScore === 0 && previousBest) {
-      setHighScore(parseInt(previousBest));
+    } else if (highScore === 0 && gameStats) {
+      setHighScore(gameStats.memoryStats.bestScore);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [hits.length, title]);

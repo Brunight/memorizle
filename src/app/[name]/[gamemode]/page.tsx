@@ -1,39 +1,40 @@
-import { notFound } from "next/navigation"
-import MemoryGame from "@/components/MemoryGame"
-import { SpeedrunGame } from "@/components/SpeedrunGame"
-import { gamesRegistry } from "@/data/games"
-import { getRandomAbleItem } from "@/utils/getRandomAbleItem"
+import { notFound } from "next/navigation";
+import MemoryGame from "@/components/MemoryGame";
+import { SpeedrunGame } from "@/components/SpeedrunGame";
+import { gamesRegistry } from "@/data/games";
+import { getRandomAbleItem } from "@/utils/getRandomAbleItem";
 
-type Params = Promise<{ 
-  name: string
-  gamemode: string 
-}>
+type Params = Promise<{
+  name: string;
+  gamemode: string;
+}>;
 
 interface GamePageProps {
-  params: Params
+  params: Params;
 }
 
 export default async function GameModePage({ params }: GamePageProps) {
-  const { name: gameName, gamemode } = await params
+  const { name: gameName, gamemode } = await params;
 
   if (!["memorize", "speedrun"].includes(gamemode)) {
-    notFound()
+    notFound();
   }
 
-  const game = gamesRegistry[gameName]
-  
+  const game = gamesRegistry[gameName];
+
   if (!game) {
-    notFound()
+    notFound();
   }
 
-  const initialItem = getRandomAbleItem([], game.data.items, undefined)!
+  const initialItem = getRandomAbleItem([], game.data.items, undefined)!;
 
   return (
     <div className="min-h-[calc(100vh-3.5rem)] flex items-center justify-center py-8">
       {gamemode === "memorize" ? (
-        <MemoryGame 
-          items={game.data.items} 
+        <MemoryGame
+          items={game.data.items}
           title={game.data.title}
+          gameName={gameName}
           useOptimizedImages={false}
           initialItem={initialItem}
         />
@@ -46,5 +47,5 @@ export default async function GameModePage({ params }: GamePageProps) {
         />
       )}
     </div>
-  )
-} 
+  );
+}

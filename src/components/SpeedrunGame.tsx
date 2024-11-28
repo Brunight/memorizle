@@ -12,6 +12,10 @@ import { Swipeable } from "@/components/Swipeable";
 
 type GameState = "idle" | "showing-item" | "showing-answer" | "finished";
 
+export type SpeedrunGameStats = {
+  bestTime: number;
+};
+
 interface SpeedrunGameProps {
   items: GameItem[];
   initialItem?: GameItem;
