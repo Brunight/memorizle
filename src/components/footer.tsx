@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import Link from "next/link";
 
 export function Footer() {
   return (
@@ -10,18 +10,26 @@ export function Footer() {
           </p>
         </div>
         <nav className="flex space-x-4">
-          <Link href="/privacy" className="text-sm text-muted-foreground hover:text-primary">
+          <Link
+            href="/privacy"
+            className="text-sm text-muted-foreground hover:text-primary"
+          >
             Privacy Policy
           </Link>
-          <Link href="/terms" className="text-sm text-muted-foreground hover:text-primary">
+          <Link
+            href="/terms"
+            className="text-sm text-muted-foreground hover:text-primary"
+          >
             Terms of Service
           </Link>
-          <Link href="/contact" className="text-sm text-muted-foreground hover:text-primary">
+          <a
+            href="mailto:contact@memorizle.com"
+            className="text-sm text-muted-foreground hover:text-primary"
+          >
             Contact Us
-          </Link>
+          </a>
         </nav>
       </div>
     </footer>
-  )
+  );
 }
-
