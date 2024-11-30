@@ -20,11 +20,13 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <Script
-          defer
-          src="https://static.cloudflareinsights.com/beacon.min.js"
-          data-cf-beacon='{"token": "3a4ea0eb7e824ce8bbc24cdcd044985d"}'
-        />
+        {process.env.NODE_ENV === "production" ? (
+          <Script
+            defer
+            src="https://static.cloudflareinsights.com/beacon.min.js"
+            data-cf-beacon='{"token": "3a4ea0eb7e824ce8bbc24cdcd044985d"}'
+          />
+        ) : null}
       </head>
       <body className={`${inter.className} flex min-h-screen flex-col`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
