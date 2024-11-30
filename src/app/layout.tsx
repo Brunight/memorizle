@@ -19,7 +19,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
+      <head />
+      <body className={`${inter.className} flex min-h-screen flex-col`}>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <Header />
+          <main className="flex-grow">{children}</main>
+          <Footer />
+        </ThemeProvider>
+
+        {/* Cloudflare Web Analytics */}
         {process.env.NODE_ENV === "production" ? (
           <Script
             defer
@@ -27,13 +35,6 @@ export default function RootLayout({
             data-cf-beacon='{"token": "3a4ea0eb7e824ce8bbc24cdcd044985d"}'
           />
         ) : null}
-      </head>
-      <body className={`${inter.className} flex min-h-screen flex-col`}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <Header />
-          <main className="flex-grow">{children}</main>
-          <Footer />
-        </ThemeProvider>
       </body>
     </html>
   );
