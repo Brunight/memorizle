@@ -1,26 +1,26 @@
-'use client'
+"use client";
 
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { motion } from 'framer-motion'
-import Link from 'next/link'
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { motion } from "framer-motion";
+import Link from "next/link";
 
 interface GameCardProps {
-  href: string
-  title: string
-  description: string
+  href: string;
+  title: string;
+  description: string;
 }
 
 export function GameCard({ href, title, description }: GameCardProps) {
   return (
     <Link href={href}>
       <motion.div
-        whileHover={{ 
+        whileHover={{
           scale: 1.02,
-          transition: { duration: 0.2 }
+          transition: { duration: 0.2 },
         }}
         className="h-full"
       >
-        <Card className="h-full cursor-pointer hover:border-primary/50 transition-colors">
+        <Card className="h-full cursor-pointer transition-colors hover:border-primary/50">
           <CardHeader>
             <CardTitle>{title}</CardTitle>
           </CardHeader>
@@ -30,5 +30,5 @@ export function GameCard({ href, title, description }: GameCardProps) {
         </Card>
       </motion.div>
     </Link>
-  )
-} 
+  );
+}

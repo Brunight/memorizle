@@ -120,7 +120,7 @@ export function SpeedrunGame({
       newHitItems,
       items,
       items.length - hitItems.length === 1 ? undefined : currentItem,
-      0
+      0,
     );
 
     if (hitItems.length >= items.length || !nextItem) {
@@ -135,8 +135,6 @@ export function SpeedrunGame({
         localStorage.setItem(storageKey, time.toString());
         setBestTime(time);
       }
-
-      return;
     } else {
       setCurrentItem(nextItem);
       setGameState("showing-item");
@@ -157,14 +155,14 @@ export function SpeedrunGame({
 
   return (
     <Card
-      className="w-full max-w-[800px] lg:w-2/4 h-full"
+      className="h-full w-full max-w-[800px] lg:w-2/4"
       onMouseDown={handleCardClick}
     >
       <CardHeader>
-        <CardTitle className="flex justify-between items-center">
+        <CardTitle className="flex items-center justify-between">
           <span>{title}</span>
           <div className="flex flex-col items-end">
-            <span className="text-2xl font-mono">{formatTime(time)}</span>
+            <span className="font-mono text-2xl">{formatTime(time)}</span>
             {bestTime && (
               <span className="text-sm text-muted-foreground">
                 Best: {formatTime(bestTime)}
@@ -176,7 +174,7 @@ export function SpeedrunGame({
       </CardHeader>
       {gameState === "idle" ? (
         <CardContent className="flex flex-col items-center gap-6">
-          <p className="text-muted-foreground text-center">
+          <p className="text-center text-muted-foreground">
             How fast can you identify all items? Press{" "}
             <span className="text-sm">SPACE</span> to begin!
           </p>
@@ -187,7 +185,7 @@ export function SpeedrunGame({
       ) : gameState === "finished" ? (
         <CardContent className="flex flex-col items-center gap-6">
           <span className="text-2xl font-bold">Congratulations!</span>
-          <p className="text-muted-foreground text-center">
+          <p className="text-center text-muted-foreground">
             You completed the game in {formatTime(time)} with {hitItems.length}{" "}
             correct answers!
             {bestTime && time < bestTime && (
@@ -201,9 +199,9 @@ export function SpeedrunGame({
           </Button>
         </CardContent>
       ) : (
-        <CardContent className="flex flex-col items-center gap-6 h-full">
+        <CardContent className="flex h-full flex-col items-center gap-6">
           <motion.div
-            className="w-full aspect-video relative border border-border rounded-lg overflow-hidden"
+            className="relative aspect-video w-full overflow-hidden rounded-lg border border-border"
             key={currentItem?.answer}
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -219,7 +217,7 @@ export function SpeedrunGame({
                 gameState === "showing-answer" && handleNext(true)
               }
             >
-              <div className="flex flex-col items-center gap-6 relative z-20 max-h-full">
+              <div className="relative z-20 flex max-h-full flex-col items-center gap-6">
                 {"imageUrl" in currentItem! ? (
                   <GameImage
                     src={currentItem!.imageUrl}
@@ -230,8 +228,8 @@ export function SpeedrunGame({
                 ) : "component" in currentItem! ? (
                   currentItem!.component
                 ) : (
-                  <div className="w-full h-full flex items-center justify-center">
-                    <span className="text-3xl font-bold text-center">
+                  <div className="flex h-full w-full items-center justify-center">
+                    <span className="text-center text-3xl font-bold">
                       {currentItem!.text}
                     </span>
                   </div>
@@ -240,7 +238,7 @@ export function SpeedrunGame({
             </Swipeable>
           </motion.div>
 
-          <div className="flex items-center min-h-56">
+          <div className="flex min-h-56 items-center">
             <AnimatePresence mode="wait">
               {gameState === "showing-item" ? (
                 <motion.div
@@ -268,15 +266,15 @@ export function SpeedrunGame({
                   transition={{ duration: 0.01 }}
                 >
                   <motion.div
-                    className="text-xl font-bold text-center line-clamp-4"
+                    className="line-clamp-4 text-center text-xl font-bold"
                     initial={{ scale: 0.9 }}
                     animate={{ scale: 1 }}
                     transition={{ type: "spring", stiffness: 200 }}
                   >
                     {currentItem!.answer}
                   </motion.div>
-                  <div className="flex justify-between gap-4 mt-4">
-                    <div className="flex flex-col items-center gap-2 w-full">
+                  <div className="mt-4 flex justify-between gap-4">
+                    <div className="flex w-full flex-col items-center gap-2">
                       <Button
                         onClick={() => handleNext(false)}
                         variant="destructive"
@@ -288,7 +286,7 @@ export function SpeedrunGame({
                         Press A
                       </span>
                     </div>
-                    <div className="flex flex-col items-center gap-2 w-full">
+                    <div className="flex w-full flex-col items-center gap-2">
                       <Button
                         onClick={() => handleNext(true)}
                         variant="success"

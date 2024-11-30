@@ -26,7 +26,7 @@ export default function RootLayout({
           data-cf-beacon='{"token": "3a4ea0eb7e824ce8bbc24cdcd044985d"}'
         />
       </head>
-      <body className={`${inter.className} flex flex-col min-h-screen`}>
+      <body className={`${inter.className} flex min-h-screen flex-col`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Header />
           <main className="flex-grow">{children}</main>

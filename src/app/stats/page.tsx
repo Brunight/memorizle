@@ -5,10 +5,10 @@ import Link from "next/link";
 
 export default function StatsPage() {
   return (
-    <div className="container mx-auto py-8 px-4">
-      <h1 className="text-4xl font-bold mb-8 text-center">Game Statistics</h1>
+    <div className="container mx-auto px-4 py-8">
+      <h1 className="mb-8 text-center text-4xl font-bold">Game Statistics</h1>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
         {Object.entries(gamesRegistry).map(([key, game]) => (
           <Link key={key} href={`/stats/${key}`}>
             <Card className="h-full cursor-pointer transition-all duration-200 hover:scale-[1.02] hover:border-primary/50">

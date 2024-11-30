@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck
 "use client";
 import { useEffect, useRef } from "react";
@@ -15,14 +16,14 @@ export function CountryZoom({ countryName }: CountryZoomProps) {
 
     // Find English name from Portuguese name
     const englishName = Object.entries(countries_pt_br).find(
-      ([_, ptName]) => ptName === countryNamePt
+      ([_, ptName]) => ptName === countryNamePt,
     )?.[0];
 
     if (!englishName) return;
 
     // Find path element with matching title
     const pathElement = svgRef.current.querySelector<SVGPathElement>(
-      `path[title="${englishName}"]`
+      `path[title="${englishName}"]`,
     );
     if (!pathElement) return;
 
@@ -54,7 +55,7 @@ export function CountryZoom({ countryName }: CountryZoomProps) {
       const easeProgress = progress * progress;
 
       const currentValues = currentViewBox.map(
-        (start, i) => start + (newViewBox[i] - start) * easeProgress
+        (start, i) => start + (newViewBox[i] - start) * easeProgress,
       );
 
       svgRef.current?.setAttribute("viewBox", currentValues.join(" "));
@@ -75,13 +76,13 @@ export function CountryZoom({ countryName }: CountryZoomProps) {
   }, [countryName]);
 
   return (
-    <div className="w-full h-full">
+    <div className="h-full w-full">
       <svg
         ref={svgRef}
         id="map"
         viewBox="0.35 0.25 1009.11 665.24"
         fill="hsl(var(--foreground) / .5  )"
-        className="w-full h-full"
+        className="h-full w-full"
       >
         {" "}
         <path

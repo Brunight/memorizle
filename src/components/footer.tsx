@@ -2,8 +2,8 @@ import Link from "next/link";
 
 export function Footer() {
   return (
-    <footer className="py-8 px-4 md:px-6 lg:px-8 bg-muted">
-      <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
+    <footer className="bg-muted px-4 py-8 md:px-6 lg:px-8">
+      <div className="container mx-auto flex flex-col items-center justify-between md:flex-row">
         <div className="mb-4 md:mb-0">
           <p className="text-sm text-muted-foreground">
             © {new Date().getFullYear()} Memorizle. All rights reserved.

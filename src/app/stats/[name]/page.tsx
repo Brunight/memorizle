@@ -18,8 +18,8 @@ export default async function GameStatsPage({ params }: Props) {
   }
 
   return (
-    <div className="container mx-auto py-8 px-4">
-      <div className="flex items-center gap-3 mb-8">
+    <div className="container mx-auto px-4 py-8">
+      <div className="mb-8 flex items-center gap-3">
         {GAME_ICONS[gameName as keyof typeof GAME_ICONS]}
         <h1 className="text-4xl font-bold">{game.title} Statistics</h1>
       </div>

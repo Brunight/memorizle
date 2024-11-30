@@ -2,10 +2,8 @@
 
 import { Input } from "@/components/ui/input";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useTransition } from "react";
-//@ts-ignore use-debounce is not typed
+import { useTransition, useState, useEffect } from "react";
 import { useDebounce } from "use-debounce";
-import { useState, useEffect } from "react";
 
 interface SearchInputProps {
   defaultValue: string;

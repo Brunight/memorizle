@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
-import Image from 'next/image';
-import { Skeleton } from './ui/skeleton';
+import Image from "next/image";
+import { Skeleton } from "./ui/skeleton";
 
 interface GameImageProps {
   src: string;
@@ -9,21 +9,21 @@ interface GameImageProps {
   className?: string;
 }
 
-export function GameImage({ 
-  src, 
-  alt, 
+export function GameImage({
+  src,
+  alt,
   useOptimization = true,
-  className = "" 
+  className = "",
 }: GameImageProps) {
   if (useOptimization) {
     return (
       <>
-        <Skeleton className="w-full h-full absolute inset-0" />
+        <Skeleton className="absolute inset-0 h-full w-full" />
         <Image
           src={src}
           alt={alt}
           fill
-          style={{ objectFit: 'contain' }}
+          style={{ objectFit: "contain" }}
           draggable={false}
           priority
         />
@@ -33,13 +33,13 @@ export function GameImage({
 
   return (
     <>
-      <Skeleton className="w-full h-full absolute inset-0 -z-[1]" />
-      <img 
-        src={src} 
-        alt={alt} 
+      <Skeleton className="absolute inset-0 -z-[1] h-full w-full" />
+      <img
+        src={src}
+        alt={alt}
         draggable={false}
-        className={`w-full h-full object-contain ${className}`}
+        className={`h-full w-full object-contain ${className}`}
       />
     </>
   );
-} 
+}

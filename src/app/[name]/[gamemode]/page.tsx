@@ -29,7 +29,7 @@ export default async function GameModePage({ params }: GamePageProps) {
   const initialItem = getRandomAbleItem([], game.data.items, undefined)!;
 
   return (
-    <div className="min-h-[calc(100vh-3.5rem)] flex items-center justify-center py-8">
+    <div className="flex min-h-[calc(100vh-3.5rem)] items-center justify-center py-8">
       {gamemode === "memorize" ? (
         <MemoryGame
           items={game.data.items}

@@ -1,967 +1,967 @@
-import { GameData } from '@/types/game';
+import { GameData } from "@/types/game";
 
 export const capitalsGame: GameData = {
   title: "Capital Cities Memory Game",
   items: [
     {
-        "text": "Åland",
-        "answer": "Mariehamn"
+      text: "Åland",
+      answer: "Mariehamn",
     },
     {
-        "text": "Albânia",
-        "answer": "Tirana"
+      text: "Albânia",
+      answer: "Tirana",
     },
     {
-        "text": "Alemanha",
-        "answer": "Berlim"
+      text: "Alemanha",
+      answer: "Berlim",
     },
     {
-        "text": "Andorra",
-        "answer": "Andorra la Vella"
+      text: "Andorra",
+      answer: "Andorra la Vella",
     },
     {
-        "text": "Áustria",
-        "answer": "Viena"
+      text: "Áustria",
+      answer: "Viena",
     },
     {
-        "text": "Belarus",
-        "answer": "Minsk"
+      text: "Belarus",
+      answer: "Minsk",
     },
     {
-        "text": "Bélgica",
-        "answer": "Bruxelas"
+      text: "Bélgica",
+      answer: "Bruxelas",
     },
     {
-        "text": "Bósnia e Herzegovina",
-        "answer": "Sarajevo"
+      text: "Bósnia e Herzegovina",
+      answer: "Sarajevo",
     },
     {
-        "text": "Bulgária",
-        "answer": "Sofia"
+      text: "Bulgária",
+      answer: "Sofia",
     },
     {
-        "text": "Croácia",
-        "answer": "Zagreb"
+      text: "Croácia",
+      answer: "Zagreb",
     },
     {
-        "text": "Dinamarca",
-        "answer": "Copenhague"
+      text: "Dinamarca",
+      answer: "Copenhague",
     },
     {
-        "text": "Eslováquia",
-        "answer": "Bratislava"
+      text: "Eslováquia",
+      answer: "Bratislava",
     },
     {
-        "text": "Eslovênia",
-        "answer": "Ljubljana"
+      text: "Eslovênia",
+      answer: "Ljubljana",
     },
     {
-        "text": "Espanha",
-        "answer": "Madri"
+      text: "Espanha",
+      answer: "Madri",
     },
     {
-        "text": "Estônia",
-        "answer": "Tallinn"
+      text: "Estônia",
+      answer: "Tallinn",
     },
     {
-        "text": "Finlândia",
-        "answer": "Helsinki"
+      text: "Finlândia",
+      answer: "Helsinki",
     },
     {
-        "text": "França",
-        "answer": "Paris"
+      text: "França",
+      answer: "Paris",
     },
     {
-        "text": "Gibraltar",
-        "answer": "Gibraltar"
+      text: "Gibraltar",
+      answer: "Gibraltar",
     },
     {
-        "text": "Grécia",
-        "answer": "Atenas"
+      text: "Grécia",
+      answer: "Atenas",
     },
     {
-        "text": "Guernsey",
-        "answer": "Saint Peter Port"
+      text: "Guernsey",
+      answer: "Saint Peter Port",
     },
     {
-        "text": "Hungria",
-        "answer": "Budapeste"
+      text: "Hungria",
+      answer: "Budapeste",
     },
     {
-        "text": "Ilha Man",
-        "answer": "Douglas"
+      text: "Ilha Man",
+      answer: "Douglas",
     },
     {
-        "text": "Ilhas Faroe",
-        "answer": "Tórshavn"
+      text: "Ilhas Faroe",
+      answer: "Tórshavn",
     },
     {
-        "text": "Irlanda",
-        "answer": "Dublin"
+      text: "Irlanda",
+      answer: "Dublin",
     },
     {
-        "text": "Islândia",
-        "answer": "Reykjavík"
+      text: "Islândia",
+      answer: "Reykjavík",
     },
     {
-        "text": "Itália",
-        "answer": "Roma"
+      text: "Itália",
+      answer: "Roma",
     },
     {
-        "text": "Jersey",
-        "answer": "Saint Helier"
+      text: "Jersey",
+      answer: "Saint Helier",
     },
     {
-        "text": "Kosovo",
-        "answer": "Pristina"
+      text: "Kosovo",
+      answer: "Pristina",
     },
     {
-        "text": "Letônia",
-        "answer": "Riga"
+      text: "Letônia",
+      answer: "Riga",
     },
     {
-        "text": "Liechtenstein",
-        "answer": "Vaduz"
+      text: "Liechtenstein",
+      answer: "Vaduz",
     },
     {
-        "text": "Lituânia",
-        "answer": "Vilnius"
+      text: "Lituânia",
+      answer: "Vilnius",
     },
     {
-        "text": "Luxemburgo",
-        "answer": "Luxemburgo"
+      text: "Luxemburgo",
+      answer: "Luxemburgo",
     },
     {
-        "text": "Malta",
-        "answer": "Valletta"
+      text: "Malta",
+      answer: "Valletta",
     },
     {
-        "text": "Moldávia",
-        "answer": "Chisinau"
+      text: "Moldávia",
+      answer: "Chisinau",
     },
     {
-        "text": "Mônaco",
-        "answer": "Mônaco"
+      text: "Mônaco",
+      answer: "Mônaco",
     },
     {
-        "text": "Montenegro",
-        "answer": "Podgorica"
+      text: "Montenegro",
+      answer: "Podgorica",
     },
     {
-        "text": "Norte da Macedônia",
-        "answer": "Skopje"
+      text: "Norte da Macedônia",
+      answer: "Skopje",
     },
     {
-        "text": "Noruega",
-        "answer": "Oslo"
+      text: "Noruega",
+      answer: "Oslo",
     },
     {
-        "text": "Países Baixos",
-        "answer": "Amsterdã"
+      text: "Países Baixos",
+      answer: "Amsterdã",
     },
     {
-        "text": "Polônia",
-        "answer": "Varsóvia"
+      text: "Polônia",
+      answer: "Varsóvia",
     },
     {
-        "text": "Portugal",
-        "answer": "Lisboa"
+      text: "Portugal",
+      answer: "Lisboa",
     },
     {
-        "text": "Reino Unido",
-        "answer": "Londres"
+      text: "Reino Unido",
+      answer: "Londres",
     },
     {
-        "text": "Romênia",
-        "answer": "Bucareste"
+      text: "Romênia",
+      answer: "Bucareste",
     },
     {
-        "text": "Rússia",
-        "answer": "Moscou"
+      text: "Rússia",
+      answer: "Moscou",
     },
     {
-        "text": "São Marino",
-        "answer": "San Marino"
+      text: "São Marino",
+      answer: "San Marino",
     },
     {
-        "text": "Sérvia",
-        "answer": "Belgrado"
+      text: "Sérvia",
+      answer: "Belgrado",
     },
     {
-        "text": "Suécia",
-        "answer": "Estocolmo"
+      text: "Suécia",
+      answer: "Estocolmo",
     },
     {
-        "text": "Suíça",
-        "answer": "Berna"
+      text: "Suíça",
+      answer: "Berna",
     },
     {
-        "text": "Svalbard e Jan Mayen",
-        "answer": "Longyearbyen"
+      text: "Svalbard e Jan Mayen",
+      answer: "Longyearbyen",
     },
     {
-        "text": "Tcheca",
-        "answer": "Praga"
+      text: "Tcheca",
+      answer: "Praga",
     },
     {
-        "text": "Ucrânia",
-        "answer": "Kyiv"
+      text: "Ucrânia",
+      answer: "Kyiv",
     },
     {
-        "text": "Vaticano",
-        "answer": "Cidade do Vaticano"
+      text: "Vaticano",
+      answer: "Cidade do Vaticano",
     },
     {
-        "text": "Anguila",
-        "answer": "The Valley"
+      text: "Anguila",
+      answer: "The Valley",
     },
     {
-        "text": "Antígua e Barbuda",
-        "answer": "Saint John’s"
+      text: "Antígua e Barbuda",
+      answer: "Saint John’s",
     },
     {
-        "text": "Argentina",
-        "answer": "Buenos Aires"
+      text: "Argentina",
+      answer: "Buenos Aires",
     },
     {
-        "text": "Aruba",
-        "answer": "Oranjestad"
+      text: "Aruba",
+      answer: "Oranjestad",
     },
     {
-        "text": "Bahamas",
-        "answer": "Nassau"
+      text: "Bahamas",
+      answer: "Nassau",
     },
     {
-        "text": "Barbados",
-        "answer": "Bridgetown"
+      text: "Barbados",
+      answer: "Bridgetown",
     },
     {
-        "text": "Belize",
-        "answer": "Belmopan"
+      text: "Belize",
+      answer: "Belmopan",
     },
     {
-        "text": "Bermudas",
-        "answer": "Hamilton"
+      text: "Bermudas",
+      answer: "Hamilton",
     },
     {
-        "text": "Bolívia",
-        "answer": "Sucre"
+      text: "Bolívia",
+      answer: "Sucre",
     },
     {
-        "text": "Brasil",
-        "answer": "Brasília"
+      text: "Brasil",
+      answer: "Brasília",
     },
     {
-        "text": "Canadá",
-        "answer": "Ottawa"
+      text: "Canadá",
+      answer: "Ottawa",
     },
     {
-        "text": "Chile",
-        "answer": "Santiago"
+      text: "Chile",
+      answer: "Santiago",
     },
     {
-        "text": "Colômbia",
-        "answer": "Bogotá"
+      text: "Colômbia",
+      answer: "Bogotá",
     },
     {
-        "text": "Costa Rica",
-        "answer": "San José"
+      text: "Costa Rica",
+      answer: "San José",
     },
     {
-        "text": "Cuba",
-        "answer": "Havana"
+      text: "Cuba",
+      answer: "Havana",
     },
     {
-        "text": "Curaçao",
-        "answer": "Willemstad"
+      text: "Curaçao",
+      answer: "Willemstad",
     },
     {
-        "text": "Dominica",
-        "answer": "Roseau"
+      text: "Dominica",
+      answer: "Roseau",
     },
     {
-        "text": "Dominicana",
-        "answer": "Santo Domingo"
+      text: "Dominicana",
+      answer: "Santo Domingo",
     },
     {
-        "text": "El Salvador",
-        "answer": "San Salvador"
+      text: "El Salvador",
+      answer: "San Salvador",
     },
     {
-        "text": "Equador",
-        "answer": "Quito"
+      text: "Equador",
+      answer: "Quito",
     },
     {
-        "text": "Geórgia do Sul",
-        "answer": "King Edward Point"
+      text: "Geórgia do Sul",
+      answer: "King Edward Point",
     },
     {
-        "text": "Grenada",
-        "answer": "Saint George's"
+      text: "Grenada",
+      answer: "Saint George's",
     },
     {
-        "text": "Groenlândia",
-        "answer": "Nuuk"
+      text: "Groenlândia",
+      answer: "Nuuk",
     },
     {
-        "text": "Guadalupe",
-        "answer": "Basse-Terre"
+      text: "Guadalupe",
+      answer: "Basse-Terre",
     },
     {
-        "text": "Guatemala",
-        "answer": "Cidade da Guatemala"
+      text: "Guatemala",
+      answer: "Cidade da Guatemala",
     },
     {
-        "text": "Guiana",
-        "answer": "Georgetown"
+      text: "Guiana",
+      answer: "Georgetown",
     },
     {
-        "text": "Guiana Francesa",
-        "answer": "Cayenne"
+      text: "Guiana Francesa",
+      answer: "Cayenne",
     },
     {
-        "text": "Haiti",
-        "answer": "Port-au-Prince"
+      text: "Haiti",
+      answer: "Port-au-Prince",
     },
     {
-        "text": "Honduras",
-        "answer": "Tegucigalpa"
+      text: "Honduras",
+      answer: "Tegucigalpa",
     },
     {
-        "text": "Ilhas Cayman",
-        "answer": "George Town"
+      text: "Ilhas Cayman",
+      answer: "George Town",
     },
     {
-        "text": "Ilhas Malvinas",
-        "answer": "Stanley"
+      text: "Ilhas Malvinas",
+      answer: "Stanley",
     },
     {
-        "text": "Ilhas Turcas e Caicos",
-        "answer": "Cockburn Town"
+      text: "Ilhas Turcas e Caicos",
+      answer: "Cockburn Town",
     },
     {
-        "text": "Ilhas Virgens (EUA)",
-        "answer": "Charlotte Amalie"
+      text: "Ilhas Virgens (EUA)",
+      answer: "Charlotte Amalie",
     },
     {
-        "text": "Ilhas Virgens (RU)",
-        "answer": "Road Town"
+      text: "Ilhas Virgens (RU)",
+      answer: "Road Town",
     },
     {
-        "text": "Jamaica",
-        "answer": "Kingston"
+      text: "Jamaica",
+      answer: "Kingston",
     },
     {
-        "text": "Martinica",
-        "answer": "Fort-de-France"
+      text: "Martinica",
+      answer: "Fort-de-France",
     },
     {
-        "text": "México",
-        "answer": "Cidade do México"
+      text: "México",
+      answer: "Cidade do México",
     },
     {
-        "text": "Montserrat",
-        "answer": "Brades"
+      text: "Montserrat",
+      answer: "Brades",
     },
     {
-        "text": "Nicarágua",
-        "answer": "Managua"
+      text: "Nicarágua",
+      answer: "Managua",
     },
     {
-        "text": "Panamá",
-        "answer": "Cidade do Panamá"
+      text: "Panamá",
+      answer: "Cidade do Panamá",
     },
     {
-        "text": "Paraguai",
-        "answer": "Asunción"
+      text: "Paraguai",
+      answer: "Asunción",
     },
     {
-        "text": "Peru",
-        "answer": "Lima"
+      text: "Peru",
+      answer: "Lima",
     },
     {
-        "text": "Porto Rico",
-        "answer": "San Juan"
+      text: "Porto Rico",
+      answer: "San Juan",
     },
     {
-        "text": "Santa Lúcia",
-        "answer": "Castries"
+      text: "Santa Lúcia",
+      answer: "Castries",
     },
     {
-        "text": "Santo Bartolomeu",
-        "answer": "Gustavia"
+      text: "Santo Bartolomeu",
+      answer: "Gustavia",
     },
     {
-        "text": "São Martinho",
-        "answer": "Marigot"
+      text: "São Martinho",
+      answer: "Marigot",
     },
     {
-        "text": "São Pedro e Miquelon",
-        "answer": "Saint-Pierre"
+      text: "São Pedro e Miquelon",
+      answer: "Saint-Pierre",
     },
     {
-        "text": "São Vicente e as Granadinas",
-        "answer": "Kingstown"
+      text: "São Vicente e as Granadinas",
+      answer: "Kingstown",
     },
     {
-        "text": "Sint Maarten",
-        "answer": "Philipsburg"
+      text: "Sint Maarten",
+      answer: "Philipsburg",
     },
     {
-        "text": "St. Kitts e Nevis",
-        "answer": "Basseterre"
+      text: "St. Kitts e Nevis",
+      answer: "Basseterre",
     },
     {
-        "text": "Suriname",
-        "answer": "Paramaribo"
+      text: "Suriname",
+      answer: "Paramaribo",
     },
     {
-        "text": "Trinidad e Tobago",
-        "answer": "Port-of-Spain"
+      text: "Trinidad e Tobago",
+      answer: "Port-of-Spain",
     },
     {
-        "text": "Uruguai",
-        "answer": "Montevidéu"
+      text: "Uruguai",
+      answer: "Montevidéu",
     },
     {
-        "text": "USA",
-        "answer": "Washington, D.C."
+      text: "USA",
+      answer: "Washington, D.C.",
     },
     {
-        "text": "Venezuela",
-        "answer": "Caracas"
+      text: "Venezuela",
+      answer: "Caracas",
     },
     {
-        "text": "Afeganistão",
-        "answer": "Cabul"
+      text: "Afeganistão",
+      answer: "Cabul",
     },
     {
-        "text": "Arábia Saudita",
-        "answer": "Riyadh"
+      text: "Arábia Saudita",
+      answer: "Riyadh",
     },
     {
-        "text": "Armênia",
-        "answer": "Yerevan"
+      text: "Armênia",
+      answer: "Yerevan",
     },
     {
-        "text": "Azerbaijão",
-        "answer": "Baku"
+      text: "Azerbaijão",
+      answer: "Baku",
     },
     {
-        "text": "Bahrein",
-        "answer": "Manama"
+      text: "Bahrein",
+      answer: "Manama",
     },
     {
-        "text": "Bangladesh",
-        "answer": "Dhaka"
+      text: "Bangladesh",
+      answer: "Dhaka",
     },
     {
-        "text": "Brunei",
-        "answer": "Bandar Seri Begawan"
+      text: "Brunei",
+      answer: "Bandar Seri Begawan",
     },
     {
-        "text": "Butão",
-        "answer": "Thimphu"
+      text: "Butão",
+      answer: "Thimphu",
     },
     {
-        "text": "Camboja",
-        "answer": "Phnom Penh"
+      text: "Camboja",
+      answer: "Phnom Penh",
     },
     {
-        "text": "Cazaquistão",
-        "answer": "Astana"
+      text: "Cazaquistão",
+      answer: "Astana",
     },
     {
-        "text": "China",
-        "answer": "Pequim"
+      text: "China",
+      answer: "Pequim",
     },
     {
-        "text": "Chipre",
-        "answer": "Nicósia"
+      text: "Chipre",
+      answer: "Nicósia",
     },
     {
-        "text": "Cingapura",
-        "answer": "Cingapura"
+      text: "Cingapura",
+      answer: "Cingapura",
     },
     {
-        "text": "Coréia do Norte",
-        "answer": "Pyongyang"
+      text: "Coréia do Norte",
+      answer: "Pyongyang",
     },
     {
-        "text": "Coréia do Sul",
-        "answer": "Seul"
+      text: "Coréia do Sul",
+      answer: "Seul",
     },
     {
-        "text": "Emirados Árabes",
-        "answer": "Abu Dhabi"
+      text: "Emirados Árabes",
+      answer: "Abu Dhabi",
     },
     {
-        "text": "Filipinas",
-        "answer": "Manila"
+      text: "Filipinas",
+      answer: "Manila",
     },
     {
-        "text": "Geórgia",
-        "answer": "Tbilisi"
+      text: "Geórgia",
+      answer: "Tbilisi",
     },
     {
-        "text": "Hong Kong",
-        "answer": "Hong Kong"
+      text: "Hong Kong",
+      answer: "Hong Kong",
     },
     {
-        "text": "Iêmen",
-        "answer": "Sanaa"
+      text: "Iêmen",
+      answer: "Sanaa",
     },
     {
-        "text": "Índia",
-        "answer": "Nova Deli"
+      text: "Índia",
+      answer: "Nova Deli",
     },
     {
-        "text": "Indonésia",
-        "answer": "Jacarta"
+      text: "Indonésia",
+      answer: "Jacarta",
     },
     {
-        "text": "Irã",
-        "answer": "Teerã"
+      text: "Irã",
+      answer: "Teerã",
     },
     {
-        "text": "Iraque",
-        "answer": "Bagdá"
+      text: "Iraque",
+      answer: "Bagdá",
     },
     {
-        "text": "Israel",
-        "answer": "Jerusalém (resp. Tel Aviv)"
+      text: "Israel",
+      answer: "Jerusalém (resp. Tel Aviv)",
     },
     {
-        "text": "Japão",
-        "answer": "Tóquio"
+      text: "Japão",
+      answer: "Tóquio",
     },
     {
-        "text": "Jordânia",
-        "answer": "Amman"
+      text: "Jordânia",
+      answer: "Amman",
     },
     {
-        "text": "Kuwait",
-        "answer": "Cidade do Kuwait"
+      text: "Kuwait",
+      answer: "Cidade do Kuwait",
     },
     {
-        "text": "Laos",
-        "answer": "Vientiane"
+      text: "Laos",
+      answer: "Vientiane",
     },
     {
-        "text": "Líbano",
-        "answer": "Beirute"
+      text: "Líbano",
+      answer: "Beirute",
     },
     {
-        "text": "Macau",
-        "answer": "Concelho de Macau"
+      text: "Macau",
+      answer: "Concelho de Macau",
     },
     {
-        "text": "Malásia",
-        "answer": "Kuala Lumpur"
+      text: "Malásia",
+      answer: "Kuala Lumpur",
     },
     {
-        "text": "Maldivas",
-        "answer": "Malé"
+      text: "Maldivas",
+      answer: "Malé",
     },
     {
-        "text": "Mianmar",
-        "answer": "Nay Pyi Taw"
+      text: "Mianmar",
+      answer: "Nay Pyi Taw",
     },
     {
-        "text": "Mongólia",
-        "answer": "Ulaanbaatar"
+      text: "Mongólia",
+      answer: "Ulaanbaatar",
     },
     {
-        "text": "Nepal",
-        "answer": "Kathmandu"
+      text: "Nepal",
+      answer: "Kathmandu",
     },
     {
-        "text": "Omã",
-        "answer": "Moscatel"
+      text: "Omã",
+      answer: "Moscatel",
     },
     {
-        "text": "Palestina",
-        "answer": "Ramallah (resp. Jerusalém Oriental)"
+      text: "Palestina",
+      answer: "Ramallah (resp. Jerusalém Oriental)",
     },
     {
-        "text": "Paquistão",
-        "answer": "Islamabad"
+      text: "Paquistão",
+      answer: "Islamabad",
     },
     {
-        "text": "Qatar",
-        "answer": "Doha"
+      text: "Qatar",
+      answer: "Doha",
     },
     {
-        "text": "Quirguizistão",
-        "answer": "Bishkek"
+      text: "Quirguizistão",
+      answer: "Bishkek",
     },
     {
-        "text": "Síria",
-        "answer": "Damasco"
+      text: "Síria",
+      answer: "Damasco",
     },
     {
-        "text": "Sri Lanka",
-        "answer": "Colombo"
+      text: "Sri Lanka",
+      answer: "Colombo",
     },
     {
-        "text": "Tailândia",
-        "answer": "Banguecoque"
+      text: "Tailândia",
+      answer: "Banguecoque",
     },
     {
-        "text": "Taiwan",
-        "answer": "Taipei"
+      text: "Taiwan",
+      answer: "Taipei",
     },
     {
-        "text": "Tajiquistão",
-        "answer": "Dushanbe"
+      text: "Tajiquistão",
+      answer: "Dushanbe",
     },
     {
-        "text": "Timor Leste",
-        "answer": "Dili"
+      text: "Timor Leste",
+      answer: "Dili",
     },
     {
-        "text": "Turcomenistão",
-        "answer": "Ashgabat"
+      text: "Turcomenistão",
+      answer: "Ashgabat",
     },
     {
-        "text": "Turquia",
-        "answer": "Ankara"
+      text: "Turquia",
+      answer: "Ankara",
     },
     {
-        "text": "Uzbequistão",
-        "answer": "Tashkent"
+      text: "Uzbequistão",
+      answer: "Tashkent",
     },
     {
-        "text": "Vietnã",
-        "answer": "Hanoi"
+      text: "Vietnã",
+      answer: "Hanoi",
     },
     {
-        "text": "África do Sul",
-        "answer": "Pretoria"
+      text: "África do Sul",
+      answer: "Pretoria",
     },
     {
-        "text": "Angola",
-        "answer": "Luanda"
+      text: "Angola",
+      answer: "Luanda",
     },
     {
-        "text": "Argélia",
-        "answer": "Argel"
+      text: "Argélia",
+      answer: "Argel",
     },
     {
-        "text": "Benin",
-        "answer": "Porto-Novo"
+      text: "Benin",
+      answer: "Porto-Novo",
     },
     {
-        "text": "Botsuana",
-        "answer": "Gaborone"
+      text: "Botsuana",
+      answer: "Gaborone",
     },
     {
-        "text": "Burkina Faso",
-        "answer": "Ouagadougou"
+      text: "Burkina Faso",
+      answer: "Ouagadougou",
     },
     {
-        "text": "Burundi",
-        "answer": "Bujumbura"
+      text: "Burundi",
+      answer: "Bujumbura",
     },
     {
-        "text": "Cabo Verde",
-        "answer": "Praia"
+      text: "Cabo Verde",
+      answer: "Praia",
     },
     {
-        "text": "Camarões",
-        "answer": "Yaoundé"
+      text: "Camarões",
+      answer: "Yaoundé",
     },
     {
-        "text": "Centráfrica",
-        "answer": "Bangui"
+      text: "Centráfrica",
+      answer: "Bangui",
     },
     {
-        "text": "Chade",
-        "answer": "N'Djamena"
+      text: "Chade",
+      answer: "N'Djamena",
     },
     {
-        "text": "Comores",
-        "answer": "Moroni"
+      text: "Comores",
+      answer: "Moroni",
     },
     {
-        "text": "Congo (dem. rep.)",
-        "answer": "Kinshasa"
+      text: "Congo (dem. rep.)",
+      answer: "Kinshasa",
     },
     {
-        "text": "Costa do Marfim",
-        "answer": "Yamoussoukro"
+      text: "Costa do Marfim",
+      answer: "Yamoussoukro",
     },
     {
-        "text": "Djibouti",
-        "answer": "Djibuti"
+      text: "Djibouti",
+      answer: "Djibuti",
     },
     {
-        "text": "Egito",
-        "answer": "Cairo"
+      text: "Egito",
+      answer: "Cairo",
     },
     {
-        "text": "Eritreia",
-        "answer": "Asmara"
+      text: "Eritreia",
+      answer: "Asmara",
     },
     {
-        "text": "Eswatini",
-        "answer": "Mbabane"
+      text: "Eswatini",
+      answer: "Mbabane",
     },
     {
-        "text": "Etiópia",
-        "answer": "Addis Ababa"
+      text: "Etiópia",
+      answer: "Addis Ababa",
     },
     {
-        "text": "Gabão",
-        "answer": "Libreville"
+      text: "Gabão",
+      answer: "Libreville",
     },
     {
-        "text": "Gâmbia",
-        "answer": "Banjul"
+      text: "Gâmbia",
+      answer: "Banjul",
     },
     {
-        "text": "Gana",
-        "answer": "Accra"
+      text: "Gana",
+      answer: "Accra",
     },
     {
-        "text": "Guiné",
-        "answer": "Conakry"
+      text: "Guiné",
+      answer: "Conakry",
     },
     {
-        "text": "Guiné Equatorial",
-        "answer": "Malabo"
+      text: "Guiné Equatorial",
+      answer: "Malabo",
     },
     {
-        "text": "Guiné-Bissau",
-        "answer": "Bissau"
+      text: "Guiné-Bissau",
+      answer: "Bissau",
     },
     {
-        "text": "Ilha da Reunião",
-        "answer": "Saint-Denis"
+      text: "Ilha da Reunião",
+      answer: "Saint-Denis",
     },
     {
-        "text": "Lesotho",
-        "answer": "Maseru"
+      text: "Lesotho",
+      answer: "Maseru",
     },
     {
-        "text": "Libéria",
-        "answer": "Monrovia"
+      text: "Libéria",
+      answer: "Monrovia",
     },
     {
-        "text": "Líbia",
-        "answer": "Trípoli"
+      text: "Líbia",
+      answer: "Trípoli",
     },
     {
-        "text": "Madagascar",
-        "answer": "Antananarivo"
+      text: "Madagascar",
+      answer: "Antananarivo",
     },
     {
-        "text": "Malauí",
-        "answer": "Lilongwe"
+      text: "Malauí",
+      answer: "Lilongwe",
     },
     {
-        "text": "Mali",
-        "answer": "Bamako"
+      text: "Mali",
+      answer: "Bamako",
     },
     {
-        "text": "Marrocos",
-        "answer": "Rabat"
+      text: "Marrocos",
+      answer: "Rabat",
     },
     {
-        "text": "Maurício",
-        "answer": "Port Louis"
+      text: "Maurício",
+      answer: "Port Louis",
     },
     {
-        "text": "Mauritânia",
-        "answer": "Nouakchott"
+      text: "Mauritânia",
+      answer: "Nouakchott",
     },
     {
-        "text": "Mayotte",
-        "answer": "Mamoudzou"
+      text: "Mayotte",
+      answer: "Mamoudzou",
     },
     {
-        "text": "Moçambique",
-        "answer": "Maputo"
+      text: "Moçambique",
+      answer: "Maputo",
     },
     {
-        "text": "Namíbia",
-        "answer": "Windhoek"
+      text: "Namíbia",
+      answer: "Windhoek",
     },
     {
-        "text": "Níger",
-        "answer": "Niamey"
+      text: "Níger",
+      answer: "Niamey",
     },
     {
-        "text": "Nigéria",
-        "answer": "Abuja"
+      text: "Nigéria",
+      answer: "Abuja",
     },
     {
-        "text": "Quênia",
-        "answer": "Nairobi"
+      text: "Quênia",
+      answer: "Nairobi",
     },
     {
-        "text": "República do Congo",
-        "answer": "Brazzaville"
+      text: "República do Congo",
+      answer: "Brazzaville",
     },
     {
-        "text": "Ruanda",
-        "answer": "Kigali"
+      text: "Ruanda",
+      answer: "Kigali",
     },
     {
-        "text": "Saara Ocidental",
-        "answer": "El Aaiún"
+      text: "Saara Ocidental",
+      answer: "El Aaiún",
     },
     {
-        "text": "Santa Helena",
-        "answer": "Jamestown"
+      text: "Santa Helena",
+      answer: "Jamestown",
     },
     {
-        "text": "São Tomé e Príncipe",
-        "answer": "São Tomé"
+      text: "São Tomé e Príncipe",
+      answer: "São Tomé",
     },
     {
-        "text": "Senegal",
-        "answer": "Dakar"
+      text: "Senegal",
+      answer: "Dakar",
     },
     {
-        "text": "Serra Leoa",
-        "answer": "Freetown"
+      text: "Serra Leoa",
+      answer: "Freetown",
     },
     {
-        "text": "Seychelles",
-        "answer": "Victoria"
+      text: "Seychelles",
+      answer: "Victoria",
     },
     {
-        "text": "Somália",
-        "answer": "Mogadíscio"
+      text: "Somália",
+      answer: "Mogadíscio",
     },
     {
-        "text": "Sudão",
-        "answer": "Khartoum"
+      text: "Sudão",
+      answer: "Khartoum",
     },
     {
-        "text": "Sudão do Sul",
-        "answer": "Juba"
+      text: "Sudão do Sul",
+      answer: "Juba",
     },
     {
-        "text": "Tanzânia",
-        "answer": "Dodoma"
+      text: "Tanzânia",
+      answer: "Dodoma",
     },
     {
-        "text": "Togo",
-        "answer": "Lomé"
+      text: "Togo",
+      answer: "Lomé",
     },
     {
-        "text": "Tunísia",
-        "answer": "Túnis"
+      text: "Tunísia",
+      answer: "Túnis",
     },
     {
-        "text": "Uganda",
-        "answer": "Kampala"
+      text: "Uganda",
+      answer: "Kampala",
     },
     {
-        "text": "Zâmbia",
-        "answer": "Lusaka"
+      text: "Zâmbia",
+      answer: "Lusaka",
     },
     {
-        "text": "Zimbábue",
-        "answer": "Harare"
+      text: "Zimbábue",
+      answer: "Harare",
     },
     {
-        "text": "Austrália",
-        "answer": "Canberra"
+      text: "Austrália",
+      answer: "Canberra",
     },
     {
-        "text": "Fiji",
-        "answer": "Suva"
+      text: "Fiji",
+      answer: "Suva",
     },
     {
-        "text": "Guam",
-        "answer": "Hagåtña"
+      text: "Guam",
+      answer: "Hagåtña",
     },
     {
-        "text": "Ilha de Natal",
-        "answer": "Flying Fish Cove"
+      text: "Ilha de Natal",
+      answer: "Flying Fish Cove",
     },
     {
-        "text": "Ilha Norfolk",
-        "answer": "Kingston"
+      text: "Ilha Norfolk",
+      answer: "Kingston",
     },
     {
-        "text": "Ilhas Cocos",
-        "answer": "West Island"
+      text: "Ilhas Cocos",
+      answer: "West Island",
     },
     {
-        "text": "Ilhas Cook",
-        "answer": "Avarua"
+      text: "Ilhas Cook",
+      answer: "Avarua",
     },
     {
-        "text": "Ilhas Marshall",
-        "answer": "Majuro"
+      text: "Ilhas Marshall",
+      answer: "Majuro",
     },
     {
-        "text": "Ilhas Pitcairn",
-        "answer": "Adamstown"
+      text: "Ilhas Pitcairn",
+      answer: "Adamstown",
     },
     {
-        "text": "Ilhas Salomão",
-        "answer": "Honiara"
+      text: "Ilhas Salomão",
+      answer: "Honiara",
     },
     {
-        "text": "Kiribati",
-        "answer": "Tarawa"
+      text: "Kiribati",
+      answer: "Tarawa",
     },
     {
-        "text": "Marianas do Norte",
-        "answer": "Saipan"
+      text: "Marianas do Norte",
+      answer: "Saipan",
     },
     {
-        "text": "Nauru",
-        "answer": "Yaren"
+      text: "Nauru",
+      answer: "Yaren",
     },
     {
-        "text": "Niue",
-        "answer": "Alofi"
+      text: "Niue",
+      answer: "Alofi",
     },
     {
-        "text": "Nova Caledônia",
-        "answer": "Nouméa"
+      text: "Nova Caledônia",
+      answer: "Nouméa",
     },
     {
-        "text": "Nova Zelândia",
-        "answer": "Wellington"
+      text: "Nova Zelândia",
+      answer: "Wellington",
     },
     {
-        "text": "Papua Nova Guiné",
-        "answer": "Port Moresby"
+      text: "Papua Nova Guiné",
+      answer: "Port Moresby",
     },
     {
-        "text": "Polinésia Francesa",
-        "answer": "Papeete"
+      text: "Polinésia Francesa",
+      answer: "Papeete",
     },
     {
-        "text": "Samoa",
-        "answer": "Apia"
+      text: "Samoa",
+      answer: "Apia",
     },
     {
-        "text": "Samoa Americana",
-        "answer": "Pago Pago"
+      text: "Samoa Americana",
+      answer: "Pago Pago",
     },
     {
-        "text": "Tonga",
-        "answer": "Nuku‘alofa"
+      text: "Tonga",
+      answer: "Nuku‘alofa",
     },
     {
-        "text": "Tuvalu",
-        "answer": "Funafuti"
+      text: "Tuvalu",
+      answer: "Funafuti",
     },
     {
-        "text": "Vanuatu",
-        "answer": "Port-Vila"
+      text: "Vanuatu",
+      answer: "Port-Vila",
     },
     {
-        "text": "Wallis e Futuna",
-        "answer": "Mata-Utu"
-    }
-]
-}; 
+      text: "Wallis e Futuna",
+      answer: "Mata-Utu",
+    },
+  ],
+};

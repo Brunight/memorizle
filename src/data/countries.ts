@@ -178,7 +178,7 @@ export const countries_pt_br = {
   "Saint Pierre and Miquelon": "São Pedro e Miquelon",
   "Pitcairn Islands": "Ilhas Pitcairn",
   "Puerto Rico": "Porto Rico",
-  "Palestinian": "Palestina",
+  Palestinian: "Palestina",
   Portugal: "Portugal",
   Palau: "Palau",
   Paraguay: "Paraguai",

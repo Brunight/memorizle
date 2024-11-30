@@ -1,6 +1,12 @@
 "use client";
 
-import { motion, useAnimation, PanInfo, useMotionValue, useTransform } from "framer-motion";
+import {
+  motion,
+  useAnimation,
+  PanInfo,
+  useMotionValue,
+  useTransform,
+} from "framer-motion";
 import { CircleCheck, CircleX } from "lucide-react";
 import { useState } from "react";
 
@@ -25,19 +31,19 @@ export function Swipeable({
   // Transform x motion value to opacity for both icons
   const checkOpacity = useTransform(
     x,
-    [-maxSwipeDistance, -maxSwipeDistance / 2, 0],  // Only show when moving left
-    [1, 0, 0]
+    [-maxSwipeDistance, -maxSwipeDistance / 2, 0], // Only show when moving left
+    [1, 0, 0],
   );
   const xMarkOpacity = useTransform(
     x,
-    [0, maxSwipeDistance / 2, maxSwipeDistance],  // Only show when moving right
-    [0, 0, 1]
+    [0, maxSwipeDistance / 2, maxSwipeDistance], // Only show when moving right
+    [0, 0, 1],
   );
 
   const handleDragEnd = async (
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     _: any,
-    { offset: { x }, velocity: { x: vx } }: PanInfo
+    { offset: { x }, velocity: { x: vx } }: PanInfo,
   ) => {
     setIsDragging(false);
 
@@ -78,24 +84,24 @@ export function Swipeable({
           cursor: isDragging ? "grabbing" : "grab",
           zIndex: 20,
         }}
-        className="touch-pan-y relative"
+        className="relative touch-pan-y"
       >
         {children}
       </motion.div>
       {/* Overlay Icons */}
       <motion.div
-        className="absolute top-1/2 right-0 h-full w-full -translate-y-1/2 bg-red-500 text-6xl pointer-events-none"
+        className="pointer-events-none absolute right-0 top-1/2 h-full w-full -translate-y-1/2 bg-red-500 text-6xl"
         style={{ opacity: checkOpacity }}
       >
-        <div className="absolute top-1/2 right-4 -translate-y-1/2">
+        <div className="absolute right-4 top-1/2 -translate-y-1/2">
           <CircleX />
         </div>
       </motion.div>
       <motion.div
-        className="absolute top-1/2 left-0 h-full w-full -translate-y-1/2 bg-green-500 text-6xl pointer-events-none"
+        className="pointer-events-none absolute left-0 top-1/2 h-full w-full -translate-y-1/2 bg-green-500 text-6xl"
         style={{ opacity: xMarkOpacity }}
       >
-        <div className="absolute top-1/2 left-4 -translate-y-1/2">
+        <div className="absolute left-4 top-1/2 -translate-y-1/2">
           <CircleCheck />
         </div>
       </motion.div>

@@ -103,7 +103,7 @@ export default function GameStats({
                       </p>
                     </div>
                     <div
-                      className="w-2 h-8 rounded-full"
+                      className="h-8 w-2 rounded-full"
                       style={{
                         backgroundColor: memoryStats?.total
                           ? `hsl(${Number(hitRateFormatted) * 1.2}, 100%, 50%)`

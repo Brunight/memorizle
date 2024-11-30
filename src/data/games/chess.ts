@@ -105,7 +105,8 @@ export const chessGame: GameData = {
     },
     {
       answer: "King's Gambit Declined: Falkbeer Countergambit",
-      imageUrl: "/images/chess/kings-gambit-declined-falkbeer-countergambit-5.png",
+      imageUrl:
+        "/images/chess/kings-gambit-declined-falkbeer-countergambit-5.png",
     },
     {
       answer: "Queen's Gambit Declined: Chigorin Defense",
@@ -121,7 +122,8 @@ export const chessGame: GameData = {
     },
     {
       answer: "Queen's Gambit Declined: Albin Countergambit",
-      imageUrl: "/images/chess/queens-gambit-declined-albin-countergambit-9.png",
+      imageUrl:
+        "/images/chess/queens-gambit-declined-albin-countergambit-9.png",
     },
     {
       answer: "Scandinavian Defense: Modern Variation",
@@ -137,7 +139,8 @@ export const chessGame: GameData = {
     },
     {
       answer: "King's Gambit Declined: Classical Variation",
-      imageUrl: "/images/chess/kings-gambit-declined-classical-variation-13.png",
+      imageUrl:
+        "/images/chess/kings-gambit-declined-classical-variation-13.png",
     },
     {
       answer: "Petrov's Defense",
@@ -277,7 +280,8 @@ export const chessGame: GameData = {
     },
     {
       answer: "Modern Defense: Standard, Pterodactyl Defense",
-      imageUrl: "/images/chess/modern-defense-standard-pterodactyl-defense-25.png",
+      imageUrl:
+        "/images/chess/modern-defense-standard-pterodactyl-defense-25.png",
     },
     {
       answer: "French Defense: Rubinstein Variation",
@@ -293,7 +297,8 @@ export const chessGame: GameData = {
     },
     {
       answer: "Queen's Gambit Declined: Pseudo-Tarrasch Defense",
-      imageUrl: "/images/chess/queens-gambit-declined-pseudo-tarrasch-defense-4.png",
+      imageUrl:
+        "/images/chess/queens-gambit-declined-pseudo-tarrasch-defense-4.png",
     },
     {
       answer: "Ruy López Opening: Classical Defense",
@@ -321,7 +326,8 @@ export const chessGame: GameData = {
     },
     {
       answer: "Ruy López Opening: Morphy Defense, Exchange Variation",
-      imageUrl: "/images/chess/ruy-lpez-opening-morphy-defense-exchange-variation-11.png",
+      imageUrl:
+        "/images/chess/ruy-lpez-opening-morphy-defense-exchange-variation-11.png",
     },
     {
       answer: "Pirc Defense: Classical Variation",
@@ -385,7 +391,8 @@ export const chessGame: GameData = {
     },
     {
       answer: "King's Indian Defense: Normal, Fianchetto Variation",
-      imageUrl: "/images/chess/kings-indian-defense-normal-fianchetto-variation-4.png",
+      imageUrl:
+        "/images/chess/kings-indian-defense-normal-fianchetto-variation-4.png",
     },
     {
       answer: "King's Indian Defense: Four Pawns Attack",
@@ -409,7 +416,8 @@ export const chessGame: GameData = {
     },
     {
       answer: "Nimzo-Indian Defense: Hübner, Rubinstein Variation",
-      imageUrl: "/images/chess/nimzo-indian-defense-hbner-rubinstein-variation-10.png",
+      imageUrl:
+        "/images/chess/nimzo-indian-defense-hbner-rubinstein-variation-10.png",
     },
     {
       answer: "Sicilian Defense: Open, Dragon Variation",
@@ -421,7 +429,8 @@ export const chessGame: GameData = {
     },
     {
       answer: "Sicilian Defense: Open, Scheveningen Variation",
-      imageUrl: "/images/chess/sicilian-defense-open-scheveningen-variation-13.png",
+      imageUrl:
+        "/images/chess/sicilian-defense-open-scheveningen-variation-13.png",
     },
     {
       answer: "King's Indian Defense: Orthodox Variation",

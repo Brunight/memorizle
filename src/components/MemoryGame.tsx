@@ -70,7 +70,7 @@ export default function MemoryGame({
       const storageKey = `memorizle-${gameName}`;
       localStorage.setItem(storageKey, JSON.stringify(newStats));
     },
-    [gameName]
+    [gameName],
   );
 
   const handleResponse = useCallback(
@@ -126,7 +126,7 @@ export default function MemoryGame({
       getGameStats,
       updateGameStats,
       itemsInGame,
-    ]
+    ],
   );
 
   // Add keyboard shortcuts
@@ -202,7 +202,7 @@ export default function MemoryGame({
       ) : (
         <CardContent className="max-h-full">
           <motion.div
-            className="w-full aspect-video relative border border-border rounded-lg overflow-hidden bg-muted"
+            className="relative aspect-video w-full overflow-hidden rounded-lg border border-border bg-muted"
             key={currentItem.answer}
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -214,7 +214,7 @@ export default function MemoryGame({
               onSwipeLeft={() => handleResponse(false)}
               onSwipeRight={() => handleResponse(true)}
             >
-              <div className="flex flex-col items-center gap-6 relative z-20 max-h-full w-full">
+              <div className="relative z-20 flex max-h-full w-full flex-col items-center gap-6">
                 {"imageUrl" in currentItem && (
                   <GameImage
                     src={currentItem.imageUrl}
@@ -224,21 +224,21 @@ export default function MemoryGame({
                   />
                 )}
                 {"text" in currentItem && (
-                  <div className="w-full h-full flex items-center justify-center">
-                    <span className="text-3xl font-bold text-center">
+                  <div className="flex h-full w-full items-center justify-center">
+                    <span className="text-center text-3xl font-bold">
                       {currentItem.text}
                     </span>
                   </div>
                 )}
                 {"component" in currentItem && (
-                  <div className="aspect-video w-full h-full flex items-center justify-center">
+                  <div className="flex aspect-video h-full w-full items-center justify-center">
                     {currentItem.component}
                   </div>
                 )}
               </div>
             </Swipeable>
           </motion.div>
-          <div className="h-[140px] flex justify-center mt-6">
+          <div className="mt-6 flex h-[140px] justify-center">
             <AnimatePresence mode="wait">
               {gameState === "showing-item" ? (
                 <motion.div
@@ -266,15 +266,15 @@ export default function MemoryGame({
                   transition={{ duration: 0.2 }}
                 >
                   <motion.div
-                    className="text-xl font-bold text-center line-clamp-4"
+                    className="line-clamp-4 text-center text-xl font-bold"
                     initial={{ scale: 0.9 }}
                     animate={{ scale: 1 }}
                     transition={{ type: "spring", stiffness: 200 }}
                   >
                     {currentItem.answer}
                   </motion.div>
-                  <div className="flex justify-between gap-4 mt-4">
-                    <div className="flex flex-col items-center gap-2 w-full">
+                  <div className="mt-4 flex justify-between gap-4">
+                    <div className="flex w-full flex-col items-center gap-2">
                       <Button
                         onClick={() => handleResponse(false)}
                         variant="destructive"
@@ -286,7 +286,7 @@ export default function MemoryGame({
                         Press A
                       </span>
                     </div>
-                    <div className="flex flex-col items-center gap-2 w-full">
+                    <div className="flex w-full flex-col items-center gap-2">
                       <Button
                         onClick={() => handleResponse(true)}
                         variant="success"
