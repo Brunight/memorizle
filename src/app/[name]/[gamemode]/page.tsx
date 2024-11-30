@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
-import MemoryGame from "@/components/MemoryGame";
+
+import { MemoryGame } from "@/components/MemoryGame";
 import { SpeedrunGame } from "@/components/SpeedrunGame";
 import { gamesRegistry } from "@/data/games";
 import { getRandomAbleItem } from "@/utils/getRandomAbleItem";

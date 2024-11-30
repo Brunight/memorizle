@@ -1,7 +1,8 @@
 import { notFound } from "next/navigation";
+import Link from "next/link";
+
 import { gamesRegistry } from "@/data/games";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
-import Link from "next/link";
 import { GAME_ICONS } from "@/config/game-icons";
 
 type Params = Promise<{ name: string }>;

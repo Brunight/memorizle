@@ -1,7 +1,8 @@
 import { notFound } from "next/navigation";
+
 import { gamesRegistry } from "@/data/games";
 import { GAME_ICONS } from "@/config/game-icons";
-import GameStats from "@/components/GameStats";
+import { GameStats } from "@/components/GameStats";
 
 type Params = Promise<{ name: string }>;
 

@@ -1,11 +1,12 @@
+import { GameData } from "@/types/game";
+import { removeRepeatedItems } from "@/utils/removeRepeatedItems";
+
 import { flagsGame } from "./flags";
 import { paintingsGame } from "./paintings";
 import { capitalsGame } from "./capitals";
-import { GameData } from "@/types/game";
 import { periodicTableGame } from "./periodicTable";
 import { regionsGame } from "./regions";
 import { chessGame } from "./chess";
-import { removeRepeatedItems } from "@/utils/removeRepeatedItems";
 
 interface GameRegistry {
   [key: string]: {

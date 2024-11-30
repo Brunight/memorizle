@@ -1,4 +1,5 @@
 import { Search } from "lucide-react";
+
 import { SearchInput } from "./search-input";
 
 interface SearchBarProps {

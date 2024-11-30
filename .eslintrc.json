@@ -15,6 +15,37 @@
         "argsIgnorePattern": "^_"
       }
     ],
-    "@typescript-eslint/ban-ts-comment": "off"
-  }
+    "@typescript-eslint/ban-ts-comment": "off",
+    "import/no-default-export": "off",
+    "import/order": [
+      "error",
+      {
+        "newlines-between": "always",
+        "groups": [
+          "builtin",
+          "external",
+          "internal",
+          ["parent", "sibling", "index"]
+        ]
+      }
+    ]
+  },
+  "settings": {
+    "import/ignore": ["node_modules", "framer-motion", "lucide-react"]
+  },
+  "overrides": [
+    // Next.js needs default exports for pages and API points
+    {
+      "files": ["src/**/*"],
+      "rules": {
+        "import/no-default-export": "error"
+      }
+    },
+    {
+      "files": ["src/app/**/*"],
+      "rules": {
+        "import/no-default-export": "off"
+      }
+    }
+  ]
 }

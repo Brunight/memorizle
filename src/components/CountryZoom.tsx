@@ -2,6 +2,7 @@
 // @ts-nocheck
 "use client";
 import { useEffect, useRef } from "react";
+
 import { countries_pt_br } from "@/data/countries"; // Reference to the countries mapping in a.js
 
 interface CountryZoomProps {

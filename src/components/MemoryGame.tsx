@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { GameProgress } from "@/components/game-progress";
@@ -9,6 +10,7 @@ import { GameImage } from "@/components/game-image";
 import { getRandomAbleItem } from "@/utils/getRandomAbleItem";
 import { GameItem } from "@/types/game";
 import { Swipeable } from "@/components/Swipeable";
+
 import { GameStats } from "./GameStats";
 type GameState = "showing-item" | "showing-answer";
 
@@ -30,7 +32,7 @@ interface MemoryGameProps {
   useOptimizedImages?: boolean;
 }
 
-export default function MemoryGame({
+export function MemoryGame({
   items,
   title,
   gameName,

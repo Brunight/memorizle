@@ -1,9 +1,10 @@
 "use client";
 
-import { Input } from "@/components/ui/input";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useTransition, useState, useEffect } from "react";
 import { useDebounce } from "use-debounce";
+
+import { Input } from "@/components/ui/input";
 
 interface SearchInputProps {
   defaultValue: string;

@@ -1,8 +1,9 @@
 "use client";
 
-import { Input } from "@/components/ui/input";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useTransition, useEffect, useState } from "react";
+
+import { Input } from "@/components/ui/input";
 import { useDebounce } from "@/hooks/use-debounce";
 
 interface SearchInputProps {

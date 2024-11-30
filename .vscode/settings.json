@@ -1,6 +1,21 @@
 {
-	"cSpell.words": ["Memorizle"],
-	"editor.codeActionsOnSave": {
-		"source.fixAll.eslint": "always"
-	}
+  "cSpell.words": ["memorizle", "Memorizle", "speedrun", "Speedrun"],
+  "editor.codeActionsOnSave": [
+    "source.addMissingImports",
+    "source.fixAll.eslint"
+  ],
+  // "workbench.editor.customLabels.patterns": {
+  //   "**/src/app/**/page.tsx": "${dirname} - Page",
+  //   "**/src/app/**/index.tsx": "${dirname} - Index",
+  //   "**/src/app/**/layout.tsx": "${dirname} - Layout",
+  //   "**/src/app/**/template.tsx": "${dirname} - Template"
+  // },
+  "typescript.preferences.autoImportFileExcludePatterns": [
+    // useRouter should be imported from `next/navigation` instead of `next/router`
+    "next/router.d.ts",
+    "next/dist/client/router.d.ts",
+    // give priority for Link to next/link instead of lucide-react
+    "lucide-react"
+  ],
+  "typescript.preferences.preferTypeOnlyAutoImports": true // Prefer type-only imports
 }

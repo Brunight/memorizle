@@ -1,8 +1,9 @@
+import Link from "next/link";
+
 import { gamesRegistry } from "@/data/games";
 import { Card, CardTitle, CardContent, CardHeader } from "@/components/ui/card";
 import { GAME_ICONS } from "@/config/game-icons";
 import { SearchBar } from "@/components/search-bar";
-import Link from "next/link";
 
 type Params = Promise<{ q?: string }>;
 

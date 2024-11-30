@@ -1,4 +1,5 @@
 import { GameItem } from "@/types/game.js";
+
 import { genRandomNumbers } from "./randomNumber.js";
 
 export const addRandomItem = (

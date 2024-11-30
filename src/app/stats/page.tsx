@@ -1,7 +1,8 @@
+import Link from "next/link";
+
 import { gamesRegistry } from "@/data/games";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { GAME_ICONS } from "@/config/game-icons";
-import Link from "next/link";
 
 export default function StatsPage() {
   return (

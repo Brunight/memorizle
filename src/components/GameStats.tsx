@@ -1,8 +1,10 @@
 "use client";
 
 import { useState } from "react";
+
 import { gamesRegistry } from "@/data/games";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+
 import { SpeedrunGameStats } from "./SpeedrunGame";
 import { MemoryGameStats } from "./MemoryGame";
 
@@ -12,7 +14,7 @@ export type GameStats = {
   speedrunStats: SpeedrunGameStats;
 };
 
-export default function GameStats({
+export function GameStats({
   name,
   game,
 }: {

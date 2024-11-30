@@ -1,6 +1,8 @@
 import Link from "next/link";
-import { ThemeSelector } from "./theme-selector";
+
 import { gamesRegistry } from "@/data/games";
+
+import { ThemeSelector } from "./theme-selector";
 
 export function Header() {
   return (
