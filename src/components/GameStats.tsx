@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { gamesRegistry } from "@/data/games";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { SpeedrunGameStats } from "./SpeedrunGame";
@@ -19,15 +19,16 @@ export default function GameStats({
   name: string;
   game: (typeof gamesRegistry)[keyof typeof gamesRegistry];
 }) {
-  const [stats, setStats] = useState<GameStats | null>(null);
-
-  useEffect(() => {
+  const [stats, setStats] = useState<GameStats | null>(() => {
     const storageKey = `memorizle-${name}`;
     const statsString = localStorage.getItem(storageKey);
+
     if (statsString) {
-      setStats(JSON.parse(statsString));
+      return JSON.parse(statsString);
     }
-  }, [name]);
+
+    return null;
+  });
 
   if (!stats) {
     return (
