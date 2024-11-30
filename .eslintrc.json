@@ -3,11 +3,10 @@
     "standard",
     "next/core-web-vitals",
     "next/typescript",
+    "plugin:import/recommended",
     "plugin:prettier/recommended"
   ],
-  "plugins": [
-    "prettier"
-  ],
+  "plugins": ["prettier"],
   "rules": {
     "camelcase": "off",
     "@typescript-eslint/no-unused-vars": [
