@@ -21,7 +21,7 @@ export function GameStats({
   name: string;
   game: (typeof gamesRegistry)[keyof typeof gamesRegistry];
 }) {
-  const [stats, setStats] = useState<GameStats | null>(() => {
+  const [stats] = useState<GameStats | null>(() => {
     const storageKey = `memorizle-${name}`;
     const statsString = localStorage.getItem(storageKey);
 

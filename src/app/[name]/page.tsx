@@ -1,9 +1,11 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import { Metadata } from "next";
 
 import { gamesRegistry } from "@/data/games";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { GAME_ICONS } from "@/config/game-icons";
+import { GameStructuredData } from "@/components/structured-data";
 
 type Params = Promise<{ name: string }>;
 
@@ -23,6 +25,34 @@ const GAME_MODES = [
     description: "How long does it take you to complete all items?",
   },
 ];
+
+export async function generateMetadata({
+  params,
+}: GamePageProps): Promise<Metadata> {
+  const { name } = await params;
+  const game = gamesRegistry[name];
+
+  if (!game) {
+    return {};
+  }
+
+  const title = `${game.title} Memory Game`;
+  const description = game.description;
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      url: `https://memorizle.com/${name}`,
+    },
+    twitter: {
+      title,
+      description,
+    },
+  };
+}
 
 export default async function GamePage({ params }: GamePageProps) {
   const { name: gameName } = await params;
@@ -55,6 +85,10 @@ export default async function GamePage({ params }: GamePageProps) {
           </Link>
         ))}
       </div>
+      <GameStructuredData
+        game={game}
+        url={`https://memorizle.com/${gameName}`}
+      />
     </div>
   );
 }

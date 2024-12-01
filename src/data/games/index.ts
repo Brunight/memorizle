@@ -8,7 +8,7 @@ import { periodicTableGame } from "./periodicTable";
 import { regionsGame } from "./regions";
 import { chessGame } from "./chess";
 
-interface GameRegistry {
+export interface GameRegistry {
   [key: string]: {
     title: string;
     description: string;

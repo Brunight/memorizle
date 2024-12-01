@@ -1,5 +1,6 @@
 import { Inter } from "next/font/google";
 import Script from "next/script";
+import type { Metadata } from "next";
 
 import { ThemeProvider } from "@/components/theme-provider";
 import { Header } from "@/components/header";
@@ -9,9 +10,55 @@ import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata = {
-  title: "Memorizle - Fun Memory Games",
-  description: "Boost your memory skills with engaging image-based games.",
+export const metadata: Metadata = {
+  title: {
+    default: "Memorizle - Fun Memory Games to Train Your Brain",
+    template: "%s | Memorizle",
+  },
+  description:
+    "Boost your memory skills with engaging image-based games. Learn flags, capitals, chess openings, and more through interactive memory challenges.",
+  keywords: [
+    "memory games",
+    "brain training",
+    "educational games",
+    "memorization",
+    "learning games",
+    "chess openings",
+    "flags",
+    "capitals",
+  ],
+  authors: [{ name: "Memorizle" }],
+  creator: "Memorizle",
+  publisher: "Memorizle",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://memorizle.com",
+    siteName: "Memorizle",
+    title: "Memorizle - Fun Memory Games to Train Your Brain",
+    description:
+      "Boost your memory skills with engaging image-based games. Learn flags, capitals, chess openings, and more through interactive memory challenges.",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Memorizle - Memory Games",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Memorizle - Fun Memory Games to Train Your Brain",
+    description:
+      "Boost your memory skills with engaging image-based games. Learn flags, capitals, chess openings, and more through interactive memory challenges.",
+    images: ["/og-image.jpg"],
+  },
 };
 
 export default function RootLayout({
