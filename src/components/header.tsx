@@ -3,6 +3,7 @@ import Link from "next/link";
 import { gamesRegistry } from "@/data/games";
 
 import { ThemeSelector } from "./theme-selector";
+import { LanguageSwitcher } from "./LanguageSwitcher";
 
 export function Header() {
   return (
@@ -55,6 +56,7 @@ export function Header() {
 
           <div className="hidden items-center space-x-2 md:flex">
             <ThemeSelector />
+            <LanguageSwitcher />
           </div>
         </div>
       </div>

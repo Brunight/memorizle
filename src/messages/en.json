@@ -1,0 +1,35 @@
+{
+  "metadata": {
+    "title": "Memorizle - Fun Memory Games to Train Your Brain",
+    "description": "Boost your memory skills with engaging image-based games. Learn flags, capitals, chess openings, and more through interactive memory challenges.",
+    "keywords": [
+      "memory games",
+      "brain training",
+      "educational games",
+      "memorization",
+      "learning games",
+      "chess openings",
+      "flags",
+      "capitals"
+    ]
+  },
+  "navigation": {
+    "home": "Home",
+    "games": "Games",
+    "about": "About"
+  },
+  "games": {
+    "capitals": {
+      "title": "Capital Cities",
+      "description": "Test your knowledge of world capitals"
+    },
+    "flags": {
+      "title": "World Flags",
+      "description": "Learn to identify country flags"
+    },
+    "regions": {
+      "title": "Country Shapes",
+      "description": "Recognize countries by their shapes"
+    }
+  }
+}

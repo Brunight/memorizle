@@ -1,0 +1,35 @@
+{
+  "metadata": {
+    "title": "Memorizle - Jogos Divertidos de Memória para Treinar seu Cérebro",
+    "description": "Melhore suas habilidades de memória com jogos baseados em imagens. Aprenda bandeiras, capitais, aberturas de xadrez e mais através de desafios interativos de memória.",
+    "keywords": [
+      "jogos de memória",
+      "treino cerebral",
+      "jogos educativos",
+      "memorização",
+      "jogos de aprendizado",
+      "aberturas de xadrez",
+      "bandeiras",
+      "capitais"
+    ]
+  },
+  "navigation": {
+    "home": "Início",
+    "games": "Jogos",
+    "about": "Sobre"
+  },
+  "games": {
+    "capitals": {
+      "title": "Capitais",
+      "description": "Teste seu conhecimento das capitais mundiais"
+    },
+    "flags": {
+      "title": "Bandeiras",
+      "description": "Aprenda a identificar bandeiras dos países"
+    },
+    "regions": {
+      "title": "Formas dos Países",
+      "description": "Reconheça países por suas formas"
+    }
+  }
+}
