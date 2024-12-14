@@ -10,8 +10,11 @@ import { GameImage } from "@/components/game-image";
 import { getRandomAbleItem } from "@/utils/getRandomAbleItem";
 import { GameItem } from "@/types/game";
 import { Swipeable } from "@/components/Swipeable";
+import { SettingsButton } from "@/components/SettingsDialog";
 
 import { GameStats } from "./GameStats";
+import { Switch } from "./ui/switch";
+
 type GameState = "showing-item" | "showing-answer";
 
 export type MemoryGameStats = {
@@ -39,10 +42,23 @@ export function MemoryGame({
   initialItem,
   useOptimizedImages = true,
 }: MemoryGameProps) {
+  const [categories, setCategories] = useState<Record<string, boolean>>(
+    // @ts-ignore
+    Array.from(new Set(items.map((item) => item.categories).flat())).reduce(
+      (acc, category) => {
+        if (!category) return acc;
+        return { ...acc, [category]: true };
+      },
+      {} as Record<string, boolean>,
+    ),
+  );
+  const [filteredItems, setFilteredItems] = useState<GameItem[]>(items);
   const [gameState, setGameState] = useState<GameState>("showing-item");
-  const [currentItem, setCurrentItem] = useState(initialItem ?? items[0]);
+  const [currentItem, setCurrentItem] = useState(
+    initialItem ?? filteredItems[0],
+  );
   const [itemsInGame, setItemsInGame] = useState<GameItem[]>([
-    initialItem ?? items[0],
+    initialItem ?? filteredItems[0],
   ]);
   const [hits, setHits] = useState<GameItem[]>([]);
   const [highScore, setHighScore] = useState(0);
@@ -78,7 +94,7 @@ export function MemoryGame({
   const handleResponse = useCallback(
     (wasCorrect: boolean) => {
       console.log("LOG:", "currentItem", currentItem);
-      if (hits.length === items.length || !currentItem) return;
+      if (hits.length === filteredItems.length || !currentItem) return;
 
       if (gameState === "showing-answer") {
         setGameState("showing-item");
@@ -111,7 +127,7 @@ export function MemoryGame({
           if (!hits.some((item) => item.answer === currentItem.answer)) {
             setHits((prev) => [...prev, currentItem]);
           }
-          newItem = getRandomAbleItem(hits, items, currentItem)!;
+          newItem = getRandomAbleItem(hits, filteredItems, currentItem)!;
           setItemsInGame((prev) => [...prev, newItem!]);
         } else {
           newItem = getRandomAbleItem(hits, itemsInGame, currentItem)!;
@@ -123,11 +139,11 @@ export function MemoryGame({
     [
       currentItem,
       hits,
-      items,
       gameState,
       getGameStats,
       updateGameStats,
       itemsInGame,
+      filteredItems,
     ],
   );
 
@@ -165,7 +181,7 @@ export function MemoryGame({
   }, [gameState, handleResponse, showAnswer]); // Re-run effect when gameState change
 
   useEffect(() => {
-    const newItem = getRandomAbleItem([], items, currentItem);
+    const newItem = getRandomAbleItem([], filteredItems, currentItem);
     setItemsInGame((prev) => [...prev, newItem!]);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -186,18 +202,49 @@ export function MemoryGame({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [hits.length, title]);
 
+  const updateFilteredItems = useCallback(() => {
+    setFilteredItems(
+      items.filter(
+        (item) =>
+          item.categories?.some((category) => categories[category]) ||
+          !item.categories,
+      ),
+    );
+  }, [items, categories]);
+
   return (
     <Card className="w-full lg:w-2/4" onMouseDown={showAnswer}>
       <CardHeader>
-        <CardTitle className="text-center">{title}</CardTitle>
+        <div className="flex items-center justify-between">
+          <CardTitle className="flex-grow text-center">{title}</CardTitle>
+          <SettingsButton onSettingsChange={updateFilteredItems}>
+            <div className="grid gap-4 py-4">
+              {Object.entries(categories).map(([category, value]) => (
+                <label key={category} className="flex items-center gap-2">
+                  <Switch
+                    id={category}
+                    checked={value}
+                    onCheckedChange={() =>
+                      setCategories((prev) => ({
+                        ...prev,
+                        [category]: !prev[category],
+                      }))
+                    }
+                  />
+                  <span>{category}</span>
+                </label>
+              ))}
+            </div>
+          </SettingsButton>
+        </div>
         <div className="flex flex-col items-center gap-2">
-          <GameProgress current={hits.length} total={items.length} />
+          <GameProgress current={hits.length} total={filteredItems.length} />
           <span className="text-sm text-muted-foreground">
-            Best Score: {highScore}/{items.length}
+            Best Score: {highScore}/{filteredItems.length}
           </span>
         </div>
       </CardHeader>
-      {hits.length === items.length || !currentItem ? (
+      {hits.length === filteredItems.length || !currentItem ? (
         <div className="flex flex-col items-center gap-6">
           <span className="text-2xl font-bold">You Win!</span>
         </div>

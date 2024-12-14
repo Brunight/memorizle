@@ -1,5 +1,6 @@
 export interface CommonGameItemProps {
   answer: string;
+  categories?: string[];
 }
 
 export interface GameItemWithImage extends CommonGameItemProps {
