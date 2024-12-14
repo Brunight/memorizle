@@ -218,7 +218,7 @@ export function SpeedrunGame({
                 gameState === "showing-answer" && handleNext(true)
               }
             >
-              <div className="relative z-20 flex max-h-full flex-col items-center gap-6">
+              <div className="relative z-20 flex h-full max-h-full flex-col items-center gap-6">
                 {"imageUrl" in currentItem! ? (
                   <GameImage
                     src={currentItem!.imageUrl}

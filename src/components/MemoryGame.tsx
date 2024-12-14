@@ -216,7 +216,7 @@ export function MemoryGame({
               onSwipeLeft={() => handleResponse(false)}
               onSwipeRight={() => handleResponse(true)}
             >
-              <div className="relative z-20 flex max-h-full w-full flex-col items-center gap-6">
+              <div className="relative z-20 flex h-full max-h-full w-full flex-col items-center gap-6">
                 {"imageUrl" in currentItem && (
                   <GameImage
                     src={currentItem.imageUrl}
@@ -240,7 +240,7 @@ export function MemoryGame({
               </div>
             </Swipeable>
           </motion.div>
-          <div className="mt-6 flex h-[140px] justify-center">
+          <div className="mt-6 flex h-[210px] items-center justify-center lg:h-[140px]">
             <AnimatePresence mode="wait">
               {gameState === "showing-item" ? (
                 <motion.div

@@ -71,7 +71,7 @@ export function Swipeable({
   };
 
   return (
-    <div className="relative">
+    <div className="relative h-full">
       <motion.div
         drag="x"
         dragConstraints={{ left: -maxSwipeDistance, right: maxSwipeDistance }}
@@ -84,7 +84,7 @@ export function Swipeable({
           cursor: isDragging ? "grabbing" : "grab",
           zIndex: 20,
         }}
-        className="relative touch-pan-y"
+        className="relative h-full touch-pan-y"
       >
         {children}
       </motion.div>
