@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 
 import { gamesRegistry } from "@/data/games";
@@ -39,6 +41,9 @@ export function Header() {
                 <Link
                   key={key}
                   href={`/${key}`}
+                  onClick={() => {
+                    document.getElementById("menu-toggle")?.click();
+                  }}
                   className="block py-2 text-foreground/60 transition-colors hover:text-foreground/80"
                 >
                   {game.title}
@@ -47,6 +52,9 @@ export function Header() {
               <Link
                 href="/stats"
                 className="block py-2 text-foreground/60 transition-colors hover:text-foreground/80"
+                onClick={() => {
+                  document.getElementById("menu-toggle")?.click();
+                }}
               >
                 Statistics
               </Link>
