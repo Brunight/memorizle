@@ -7,6 +7,8 @@ import { capitalsGame } from "./capitals";
 import { periodicTableGame } from "./periodicTable";
 import { regionsGame } from "./regions";
 import { chessGame } from "./chess";
+import { hiraganaGame } from "./hiragana";
+import { katakanaGame } from "./katakana";
 
 export interface GameRegistry {
   [key: string]: {
@@ -69,6 +71,24 @@ export const gamesRegistry: GameRegistry = {
     data: {
       title: chessGame.title,
       items: removeRepeatedItems(chessGame.items),
+    },
+  },
+  hiragana: {
+    title: "Hiragana",
+    description:
+      "Learn Japanese Hiragana characters through this engaging memory game. Master the basic Japanese writing system while having fun.",
+    data: {
+      title: hiraganaGame.title,
+      items: removeRepeatedItems(hiraganaGame.items),
+    },
+  },
+  katakana: {
+    title: "Katakana",
+    description:
+      "Practice Japanese Katakana characters with this interactive memory game. Perfect for learning the Japanese writing system used for foreign words.",
+    data: {
+      title: katakanaGame.title,
+      items: removeRepeatedItems(katakanaGame.items),
     },
   },
 };
