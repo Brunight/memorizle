@@ -7,6 +7,7 @@ import { capitalsGame } from "./capitals";
 import { periodicTableGame } from "./periodicTable";
 import { regionsGame } from "./regions";
 import { chessGame } from "./chess";
+import { notesGame } from "./notes";
 
 export interface GameRegistry {
   [key: string]: {
@@ -71,4 +72,12 @@ export const gamesRegistry: GameRegistry = {
       items: removeRepeatedItems(chessGame.items),
     },
   },
+  notes: {
+    title: 'Notes',
+    description: "Train your ear to recognize musical notes",
+    data: {
+      title: notesGame.title,
+      items: notesGame.items,
+    }
+  }
 };

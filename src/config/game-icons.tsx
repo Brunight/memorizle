@@ -1,4 +1,4 @@
-import { Beaker, Flag, Globe, Palette, Map, Crown } from "lucide-react";
+import { Beaker, Flag, Globe, Palette, Map, Crown, Music } from "lucide-react";
 
 export const GAME_ICONS = {
   flags: <Flag className="h-8 w-8 text-primary" />,
@@ -7,6 +7,8 @@ export const GAME_ICONS = {
   "periodic-table": <Beaker className="h-8 w-8 text-primary" />,
   regions: <Map className="h-8 w-8 text-primary" />,
   chess: <Crown className="h-8 w-8 text-primary" />,
+  notes: <Music className="h-8 w-8 text-primary" />,
+
 } as const;
 
 export type GameIconKey = keyof typeof GAME_ICONS;
