@@ -75,12 +75,12 @@ export const gamesRegistry: GameRegistry = {
     },
   },
   notes: {
-    title: 'Notes',
+    title: "Notes",
     description: "Train your ear to recognize musical notes",
     data: {
       title: notesGame.title,
       items: notesGame.items,
-    }
+    },
   },
   hiragana: {
     title: "Hiragana",

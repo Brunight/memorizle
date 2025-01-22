@@ -6,7 +6,7 @@ import {
   Map,
   Crown,
   Languages,
-  Music
+  Music,
 } from "lucide-react";
 
 export const GAME_ICONS = {
