@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useCallback, useEffect, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -10,8 +10,11 @@ import { GameImage } from "@/components/game-image";
 import { getRandomAbleItem } from "@/utils/getRandomAbleItem";
 import { GameItem } from "@/types/game";
 import { Swipeable } from "@/components/Swipeable";
+import { useStreak } from "@/hooks/useStreak";
+import { GameStreak } from "@/components/ui/game-streak";
 
 import { GameStats } from "./GameStats";
+
 type GameState = "showing-item" | "showing-answer";
 
 export type MemoryGameStats = {
@@ -46,6 +49,7 @@ export function MemoryGame({
   ]);
   const [hits, setHits] = useState<GameItem[]>([]);
   const [highScore, setHighScore] = useState(0);
+  const { updateStreak, getStreak } = useStreak(gameName);
 
   const showAnswer = useCallback(() => {
     if (gameState === "showing-item") {
@@ -62,6 +66,7 @@ export function MemoryGame({
         gameName,
         memoryStats: { bestScore: 0, stats: {} },
         speedrunStats: { bestTime: 0 },
+        dailyStreak: { current: 0, best: 0, lastPlayed: "" },
       };
     }
     return JSON.parse(gameStatsString);
@@ -78,6 +83,7 @@ export function MemoryGame({
   const handleResponse = useCallback(
     (wasCorrect: boolean) => {
       console.log("LOG:", "currentItem", currentItem);
+
       if (hits.length === items.length || !currentItem) return;
 
       if (gameState === "showing-answer") {
@@ -105,6 +111,7 @@ export function MemoryGame({
         };
 
         updateGameStats(newStats);
+        updateStreak();
 
         let newItem: GameItem;
         if (wasCorrect) {
@@ -128,6 +135,7 @@ export function MemoryGame({
       getGameStats,
       updateGameStats,
       itemsInGame,
+      updateStreak,
     ],
   );
 
@@ -192,9 +200,16 @@ export function MemoryGame({
         <CardTitle className="text-center">{title}</CardTitle>
         <div className="flex flex-col items-center gap-2">
           <GameProgress current={hits.length} total={items.length} />
-          <span className="text-sm text-muted-foreground">
-            Best Score: {highScore}/{items.length}
-          </span>
+          <div className="flex gap-4 text-sm text-muted-foreground">
+            <span>
+              Best Score: {highScore}/{items.length}
+            </span>
+            <GameStreak
+              current={getStreak?.()?.current ?? 0}
+              best={getStreak?.()?.best ?? 0}
+              lastPlayed={getStreak?.()?.lastPlayed ?? ""}
+            />
+          </div>
         </div>
       </CardHeader>
       {hits.length === items.length || !currentItem ? (

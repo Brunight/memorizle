@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useEffect, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -10,6 +10,8 @@ import { GameImage } from "@/components/game-image";
 import { getRandomAbleItem } from "@/utils/getRandomAbleItem";
 import { GameItem } from "@/types/game";
 import { Swipeable } from "@/components/Swipeable";
+import { useStreak } from "@/hooks/useStreak";
+import { GameStreak } from "@/components/ui/game-streak";
 
 type GameState = "idle" | "showing-item" | "showing-answer" | "finished";
 
@@ -36,6 +38,7 @@ export function SpeedrunGame({
   const [time, setTime] = useState(0);
   const [isRunning, setIsRunning] = useState(false);
   const [bestTime, setBestTime] = useState<number | null>(null);
+  const { updateStreak, getStreak } = useStreak(title);
 
   useEffect(() => {
     // Load best time from localStorage on component mount
@@ -127,6 +130,7 @@ export function SpeedrunGame({
     if (hitItems.length >= items.length || !nextItem) {
       setGameState("finished");
       setIsRunning(false);
+      updateStreak();
 
       // Save best time to localStorage if it's better than previous
       const storageKey = `speedrun-best-time-${title}`;
@@ -164,11 +168,14 @@ export function SpeedrunGame({
           <span>{title}</span>
           <div className="flex flex-col items-end">
             <span className="font-mono text-2xl">{formatTime(time)}</span>
-            {bestTime && (
-              <span className="text-sm text-muted-foreground">
-                Best: {formatTime(bestTime)}
-              </span>
-            )}
+            <div className="flex gap-4 text-sm text-muted-foreground">
+              {bestTime && <span>Best: {formatTime(bestTime)}</span>}
+              <GameStreak
+                current={getStreak?.()?.current ?? 0}
+                best={getStreak?.()?.best ?? 0}
+                lastPlayed={getStreak?.()?.lastPlayed ?? ""}
+              />
+            </div>
           </div>
         </CardTitle>
         <GameProgress current={hitItems.length} total={items.length} />

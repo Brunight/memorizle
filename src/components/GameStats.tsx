@@ -1,9 +1,10 @@
 "use client";
 
 import { useState } from "react";
+import { Flame } from "lucide-react";
 
 import { gamesRegistry } from "@/data/games";
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 import { SpeedrunGameStats } from "./SpeedrunGame";
 import { MemoryGameStats } from "./MemoryGame";
@@ -12,6 +13,11 @@ export type GameStats = {
   gameName: string;
   memoryStats: MemoryGameStats;
   speedrunStats: SpeedrunGameStats;
+  dailyStreak: {
+    current: number;
+    best: number;
+    lastPlayed: string;
+  };
 };
 
 export function GameStats({
@@ -65,6 +71,30 @@ export function GameStats({
           <CardContent>
             <p>Best Time: {stats.speedrunStats.bestTime || 0}s</p>
             <p>Total Items: {game.data.items.length}</p>
+          </CardContent>
+        </Card>
+      )}
+
+      {stats.dailyStreak && (
+        <Card className="mb-8">
+          <CardHeader>
+            <CardTitle>Daily Streak</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="flex items-center gap-2">
+              Current Streak: {stats.dailyStreak.current}
+              <Flame
+                className={`h-4 w-4 ${
+                  stats.dailyStreak.lastPlayed === new Date().toDateString()
+                    ? "text-orange-500"
+                    : ""
+                }`}
+              />
+            </p>
+            <p className="flex items-center gap-2">
+              Best Streak: {stats.dailyStreak.best}
+              <Flame className="h-4 w-4" />
+            </p>
           </CardContent>
         </Card>
       )}

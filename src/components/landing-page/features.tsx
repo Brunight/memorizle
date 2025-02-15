@@ -28,7 +28,7 @@ export function Features() {
                   <span>{feature.title}</span>
                 </CardTitle>
               </CardHeader>
-              <CardContent className="flex-grow">
+              <CardContent className="flex flex-grow flex-col justify-between">
                 <p className="mb-4 text-muted-foreground">
                   {feature.description}
                 </p>
