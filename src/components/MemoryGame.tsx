@@ -59,7 +59,6 @@ export function MemoryGame({
 
   const getGameStats = useCallback((): GameStats => {
     const storageKey = `memorizle-${gameName}`;
-    console.log(storageKey);
     const gameStatsString = localStorage.getItem(storageKey);
     if (!gameStatsString) {
       return {
@@ -82,8 +81,6 @@ export function MemoryGame({
 
   const handleResponse = useCallback(
     (wasCorrect: boolean) => {
-      console.log("LOG:", "currentItem", currentItem);
-
       if (hits.length === items.length || !currentItem) return;
 
       if (gameState === "showing-answer") {

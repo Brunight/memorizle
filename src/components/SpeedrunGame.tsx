@@ -62,7 +62,6 @@ export function SpeedrunGame({
   }, [isRunning]);
 
   useEffect(() => {
-    console.log("LOG:", "gameState", gameState);
     const handleKeyPress = (event: KeyboardEvent) => {
       if (
         event.target instanceof HTMLInputElement ||

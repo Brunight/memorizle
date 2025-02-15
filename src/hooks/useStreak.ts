@@ -1,8 +1,34 @@
 "use client";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
+
+import type { GameStats } from "@/components/GameStats";
 
 export function useStreak(gameName: string) {
   const [isClient, setIsClient] = useState(false);
+
+  const defaultGameStats = useMemo(
+    (): GameStats => ({
+      gameName,
+      memoryStats: { bestScore: 0, stats: {} },
+      speedrunStats: { bestTime: 0 },
+      dailyStreak: { current: 0, best: 0, lastPlayed: "" },
+    }),
+    [gameName],
+  );
+
+  const buildGameStats = useCallback(
+    (gameStats: string | null) => {
+      const parsedGameStats: Partial<GameStats> = gameStats
+        ? JSON.parse(gameStats)
+        : {};
+
+      return {
+        ...defaultGameStats,
+        ...parsedGameStats,
+      };
+    },
+    [defaultGameStats],
+  );
 
   useEffect(() => {
     setIsClient(true);
@@ -13,15 +39,7 @@ export function useStreak(gameName: string) {
 
     const storageKey = `memorizle-${gameName}`;
     const gameStatsString = localStorage.getItem(storageKey);
-    const gameStats = gameStatsString
-      ? JSON.parse(gameStatsString)
-      : {
-          gameName,
-          memoryStats: { bestScore: 0, stats: {} },
-          speedrunStats: { bestTime: 0 },
-          dailyStreak: { current: 0, best: 0, lastPlayed: null },
-        };
-
+    const gameStats = buildGameStats(gameStatsString);
     const today = new Date().toDateString();
 
     if (gameStats.dailyStreak.lastPlayed !== today) {
@@ -50,20 +68,17 @@ export function useStreak(gameName: string) {
 
       localStorage.setItem(storageKey, JSON.stringify(updatedStats));
     }
-  }, [gameName, isClient]);
+  }, [buildGameStats, gameName, isClient]);
 
   const getStreak = useCallback(() => {
-    if (!isClient) return { current: 0, best: 0, lastPlayed: null };
+    if (!isClient) return defaultGameStats.dailyStreak;
 
     const storageKey = `memorizle-${gameName}`;
     const gameStatsString = localStorage.getItem(storageKey);
-    const gameStats = gameStatsString
-      ? JSON.parse(gameStatsString)
-      : {
-          dailyStreak: { current: 0, best: 0, lastPlayed: null },
-        };
+    const gameStats = buildGameStats(gameStatsString);
+
     return gameStats.dailyStreak;
-  }, [gameName, isClient]);
+  }, [buildGameStats, defaultGameStats.dailyStreak, gameName, isClient]);
 
   return { updateStreak, getStreak };
 }

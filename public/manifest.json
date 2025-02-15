@@ -1,11 +1,11 @@
 {
-  "name": "Memorizle - Fun Memory Games",
+  "name": "Memorizle",
   "short_name": "Memorizle",
   "description": "Boost your memory skills with engaging image-based games",
   "start_url": "/",
-  "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#000000",
+  "display": "fullscreen",
+  "background_color": "#1e293b",
+  "theme_color": "#1e293b",
   "icons": [
     {
       "src": "/icon-192x192.png",
