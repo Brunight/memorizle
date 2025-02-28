@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Metadata } from "next";
 
 import { gamesRegistry } from "@/data/games";
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { GAME_ICONS } from "@/config/game-icons";
 import { GameStructuredData } from "@/components/structured-data";
 
@@ -85,6 +85,22 @@ export default async function GamePage({ params }: GamePageProps) {
           </Link>
         ))}
       </div>
+
+      {["Hiragana", "Katakana"].includes(game.title) && (
+        <div className="mt-8 flex items-center gap-2">
+          <span className="text-muted-foreground">
+            Leaning Japanese? Get more free learning content in{" "}
+            <Link
+              href={`https://wakokujp.com/`}
+              target="_blank"
+              className="text-primary underline"
+            >
+              Wakoku
+            </Link>
+          </span>
+        </div>
+      )}
+
       <GameStructuredData
         game={game}
         url={`https://memorizle.com/${gameName}`}
