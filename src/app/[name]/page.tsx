@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { Metadata } from "next";
+import { Book, BookOpen } from "lucide-react";
 
 import { gamesRegistry } from "@/data/games";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -87,7 +88,11 @@ export default async function GamePage({ params }: GamePageProps) {
       </div>
 
       {["Hiragana", "Katakana"].includes(game.title) && (
-        <div className="mt-8 flex items-center gap-2">
+        <div className="group mt-8 flex items-center gap-2">
+          <div className="relative h-4 w-4">
+            <Book className="absolute h-4 w-4 text-muted-foreground transition-opacity group-hover:opacity-0" />
+            <BookOpen className="absolute h-4 w-4 text-muted-foreground opacity-0 transition-opacity group-hover:opacity-100" />
+          </div>
           <span className="text-muted-foreground">
             Leaning Japanese? Get more free learning content in{" "}
             <Link
