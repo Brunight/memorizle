@@ -94,13 +94,13 @@ export default async function GamePage({ params }: GamePageProps) {
             <BookOpen className="absolute h-4 w-4 text-muted-foreground opacity-0 transition-opacity group-hover:opacity-100" />
           </div>
           <span className="text-muted-foreground">
-            Leaning Japanese? Get more free learning content in{" "}
+            Leaning Japanese? Get more free learning content at{" "}
             <Link
               href={`https://wakokujp.com/`}
               target="_blank"
               className="text-primary underline"
             >
-              Wakoku
+              Wakoku!
             </Link>
           </span>
         </div>
